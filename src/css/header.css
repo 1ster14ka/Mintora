@@ -1,0 +1,73 @@
+.header {
+  padding-top: 45px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+} */
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 53px;
+}
+.nav-item {
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #606060;
+  font-size: 17px;
+}
+
+.search-nft {
+  width: 348px;
+  height: 57px;
+  border-radius: 14px;
+  border: #ededed;
+  background-color: #ededed;
+  padding-left: 30px;
+}
+
+.btn-wallet {
+  border-radius: 16px;
+  width: 199px;
+  height: 57px;
+  background: #141416;
+  font-weight: 600;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #fff;
+}
+/* .nav-link {
+  position: relative;
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: 200ms ease-in;
+} */
+/* .nav-link:hover,
+.nav-link:focus {
+  color: #747bff;
+} */
+/* .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 110%;
+  height: 4px;
+  border-radius: 4px;
+  transform-origin: center;
+  animation: stretch 400ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 200ms both;
+} */
+/* .nav-link.active::after {
+  background: #747bff;
+} */
