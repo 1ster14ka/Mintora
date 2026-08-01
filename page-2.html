@@ -5,44 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-BDHqdbXJ.css">
+    <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-ClBjPdze.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
+  <div class="container container-header">
     <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg width="54" height="54">
-          <use href="../img/sprite.svg#logo"></use>
+      <div class="nav__brand">
+        <a class="nav__logo" href="./index.html" aria-label="Site logo">
+          <svg class="nav__logo-icon">
+            <use href="/Mintora/assets/sprite-C4GTkqFR.svg#logo"></use>
+          </svg>
+          <span class="nav__logo-text">DiveSea</span>
+        </a>
+
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link active" href="./page-2.html"
+              >Discover</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
+              >creators</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
+              >Sell</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
+              >stats</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav__actions">
+        <div class="search">
+          <svg class="search__icon">
+            <use href="/Mintora/assets/sprite-C4GTkqFR.svg#search"></use>
+          </svg>
+          <input
+            type="text"
+            class="search__input"
+            name="search"
+            placeholder="Search Art Work / Creator"
+          />
+        </div>
+        <button class="button btn--wallet">Connect Wallet</button>
+      </div>
+      <button class="nav__menu-button">
+        <svg class="nav__menu-icon">
+          <use href="/Mintora/assets/sprite-C4GTkqFR.svg#burger-menu"></use>
         </svg>
-      </a>
-
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link active" href="./page-2.html"
-            >Discover</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html"
-            >creators</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Sell</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">stats</a>
-        </li>
-      </ul>
-
-      <input
-        type="text"
-        class="search-nft"
-        name="search"
-        placeholder="Search Art Work / Creator"
-      />
-      <button class="btn-wallet">Connect Wallet</button>
+      </button>
     </nav>
   </div>
 </header>
