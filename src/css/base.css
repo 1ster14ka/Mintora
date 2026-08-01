@@ -26,6 +26,17 @@
   --font6: 'Roboto', sans-serif;
   --font7: 'Urbanist', sans-serif;
   --font8: 'Plus Jakarta Sans', sans-serif;
+  --color-black: #141416;
+  --color-white: #fff;
+  --color-light-grey: #ededed;
+  --color-placeholder: #c2c3cb;
+  --color-background: #333;
+  --color-text: #000;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
