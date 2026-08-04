@@ -141,6 +141,12 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.hero__arrow-btn--prev,
+.hero__arrow-btn--next {
+  display: flex;
+  align-items: center;
+}
 .hero__arrow-icon {
   width: 13px;
   height: 13px;
