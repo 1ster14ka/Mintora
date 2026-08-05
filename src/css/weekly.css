@@ -3,7 +3,18 @@
   position: relative;
   height: 100%;
   background-color: var(--background-colorCard);
-  padding: 147px 0 55px 0;
+  padding: 57px 0 55px 0;
+}
+
+.weekly-title {
+  font-weight: 600;
+  font-size: 32px;
+
+  line-height: 0.59812;
+  color: #c5c5c5;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 63px;
 }
 
 .swiper-wrapper {
@@ -44,7 +55,6 @@
   gap: 3px;
 }
 .nft__timer span {
-  font-family: var(--font-family);
   font-weight: 500;
   font-size: 10px;
 
@@ -53,7 +63,6 @@
   color: var(--color-white);
 }
 .nft__name {
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 14px;
 
@@ -73,7 +82,6 @@
   gap: 3px;
 }
 .nft-card__label {
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 9px;
 
@@ -84,7 +92,6 @@
 .nft-card__price {
   display: flex;
   align-items: center;
-  font-family: var(--font-family);
   font-weight: 400;
   font-size: 11px;
 
@@ -101,7 +108,6 @@
   border-radius: 8px;
   width: 85px;
   background-color: var(--color-black);
-  font-family: var(--font-family);
   font-weight: 700;
   font-size: 9px;
 
@@ -121,14 +127,23 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .container-weekly {
+    max-width: 768px;
+  }
   .weekly-nft {
-    padding: 140px 0 64px 0;
+    padding: 50px 0 64px 0;
+  }
+  .weekly-title {
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .weekly-nft {
-    padding: 197px 0 90px 0;
+    padding: 70px 0 90px 0;
+  }
+  .weekly-title {
+    margin-bottom: 100px;
   }
   .swiper-slide {
     width: 281px !important;
