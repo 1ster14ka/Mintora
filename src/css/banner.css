@@ -113,7 +113,7 @@
 
   .banner__img-wrapper {
     position: static;
-    transform: none;
+    transform: translateX(0);
   }
   .banner__img-wrapper::before {
     filter: blur(10px);
