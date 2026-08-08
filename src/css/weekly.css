@@ -109,11 +109,16 @@
     width: 281px !important;
     padding: 14px 14px 20px 14px;
   }
+  .nft-card--weekly .nft-card__item {
+    width: 281px !important;
+    padding: 14px 14px 20px;
+  }
   .nft-card--weekly .nft__timer {
     padding: 9px 14px;
-    width: 116px;
+    width: 114px;
     height: 37px;
     top: 14px;
+    border-radius: 9px;
   }
   .nft-card--weekly .nft__name {
     font-size: 21px;

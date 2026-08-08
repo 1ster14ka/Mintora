@@ -1,0 +1,179 @@
+.banner {
+  padding-bottom: 190px;
+}
+
+.banner__container {
+  border-radius: 15px;
+  background-color: var(--color-black);
+  position: relative;
+  padding-top: 22px;
+  padding-bottom: 82px;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 25px;
+}
+.banner__title {
+  font-weight: 600;
+  font-size: 22px;
+
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: var(--color-white);
+}
+.banner__text {
+  font-weight: 500;
+  font-size: 10px;
+
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #d4d4d4;
+  opacity: 0.6;
+}
+.banner__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.banner__btn {
+  border-radius: 6px;
+  width: 90px;
+  height: 33px;
+  font-weight: 600;
+  font-size: 10px;
+
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+.banner__btn--explore {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+.banner__btn--sell {
+  border: 1.13px solid #fff;
+  color: var(--color-white);
+}
+
+.banner__img-wrapper {
+  position: absolute;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 266px;
+  height: 137px;
+}
+.banner__img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('../img/hero/hero-nft.jpg');
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(30.8px);
+  transform: scale(1.05);
+
+  z-index: 0;
+}
+.banner__img {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  border-radius: 9px;
+}
+@media screen and (min-width: 768px) {
+  .banner__container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 22px 22px 22px 47px;
+  }
+  .banner__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .banner__info {
+    align-items: flex-start;
+  }
+  .banner__buttons {
+    justify-content: flex-start;
+  }
+
+  .banner__img-wrapper {
+    position: static;
+    transform: none;
+  }
+  .banner__img-wrapper::before {
+    filter: blur(10px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .banner__info {
+    gap: 8px;
+    margin-bottom: 35px;
+  }
+  .banner__title {
+    font-size: 32px;
+  }
+  .banner__text {
+    font-size: 14px;
+  }
+  .banner__buttons {
+    gap: 21px;
+  }
+  .banner__btn {
+    width: 130px;
+    height: 48px;
+    font-size: 15px;
+    border-radius: 9px;
+  }
+  .banner__img-wrapper {
+    height: 177px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .banner__container {
+    padding: 31px 31px 31px 66px;
+  }
+  .banner__info {
+    gap: 12px;
+    margin-bottom: 50px;
+  }
+  .banner__title {
+    font-size: 45px;
+  }
+  .banner__text {
+    font-size: 20px;
+  }
+  .banner__buttons {
+    gap: 30px;
+  }
+  .banner__btn {
+    width: 183px;
+    height: 67px;
+    font-size: 21px;
+    border-radius: 12px;
+  }
+  .banner__img-wrapper {
+    width: 369px;
+    height: 249px;
+  }
+
+  .banner__img-wrapper::before {
+    filter: blur(52.9px);
+  }
+}
