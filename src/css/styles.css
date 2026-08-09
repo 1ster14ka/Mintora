@@ -9,6 +9,7 @@
 @import url('./base.css');
 @import url('./container.css');
 @import url('./animations.css');
+@import url('./components/components.css');
 @import url('./components/nft-cards.css');
 
 /* Sections style */

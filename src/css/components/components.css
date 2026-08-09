@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo__text {
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.3;
+}

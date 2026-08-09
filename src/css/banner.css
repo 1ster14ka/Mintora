@@ -94,6 +94,9 @@
   border-radius: 9px;
 }
 @media screen and (min-width: 768px) {
+  .banner {
+    padding-bottom: 113px;
+  }
   .banner__container {
     flex-direction: row;
     justify-content: space-between;
@@ -121,6 +124,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .banner {
+    padding-bottom: 160px;
+  }
   .banner__info {
     gap: 8px;
     margin-bottom: 35px;
