@@ -70,6 +70,10 @@
   line-height: 1.5;
   letter-spacing: 0.01em;
   color: var(--color-white);
+  transition: opacity 0.3s ease;
+}
+.nft-card__button:hover {
+  opacity: 0.8;
 }
 
 .nft-card__bid-wrapper {

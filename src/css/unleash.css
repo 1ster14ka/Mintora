@@ -7,9 +7,6 @@
 }
 
 .unleash__title {
-  font-weight: 600;
-  font-size: 30px;
-
   line-height: 1.23713;
   text-transform: capitalize;
   color: #c5c5c5;
@@ -147,9 +144,18 @@
   display: block;
   margin: 0 auto;
   margin-top: 158px;
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 .unleash__explore-btn--desk {
   display: none;
+}
+
+.unleash__explore-btn:hover {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 1.07px solid var(--color-text);
 }
 
 @media screen and (min-width: 1024px) {
@@ -164,13 +170,11 @@
   .unleash__container::before {
     content: '';
     border: 0.51px solid #cbcbcb;
-    /* height: 2px; */
     width: 100%;
     position: absolute;
     top: -50px;
   }
   .unleash__title {
-    font-size: 32px;
     margin-bottom: 31px;
     text-align: left;
   }
@@ -273,7 +277,6 @@
     max-width: 461px;
   }
   .unleash__title {
-    font-size: 45px;
     margin-bottom: 45px;
   }
   .points__list {

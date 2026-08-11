@@ -47,6 +47,11 @@
   line-height: 1.34887;
   text-transform: uppercase;
   color: #b9b9b9;
+  transition: color 0.3s linear;
+}
+.footer__link:hover,
+.footer__link:focus {
+  color: var(--color-white);
 }
 .social {
   grid-area: social;
@@ -65,9 +70,11 @@
   width: 16px;
   height: 15px;
   fill: #535353;
+  transition: fill 0.4s ease-out;
 }
-.social__icons:hover {
-  fill: red;
+.social__icons:hover,
+.social__icons:focus {
+  fill: var(--color-white);
 }
 
 .footer__copyright {

@@ -53,11 +53,29 @@
 }
 .banner__btn--explore {
   background-color: var(--color-white);
+  border: 1.13px solid var(--color-white);
   color: var(--color-black);
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
-.banner__btn--sell {
-  border: 1.13px solid #fff;
+
+.banner__btn--explore:hover {
+  background-color: var(--color-black);
   color: var(--color-white);
+}
+
+.banner__btn--sell {
+  border: 1.13px solid var(--color-white);
+  color: var(--color-white);
+  transition:
+    background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+
+.banner__btn--sell:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .banner__img-wrapper {

@@ -3,9 +3,6 @@
 }
 
 .collection__title {
-  font-weight: 600;
-  font-size: 30px;
-
   line-height: 1.49169;
   color: var(--color-black);
   display: flex;
@@ -125,11 +122,19 @@
   letter-spacing: -0.01em;
   text-align: right;
   color: #acadb9;
+  transition: color 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.table__button:hover {
+  color: var(--color-black);
+  .table__icon-arrow {
+    fill: var(--color-black);
+  }
 }
 .table__icon-arrow {
   fill: #acadb9;
   width: 15px;
   height: 15px;
+  transition: fill 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 @media screen and (min-width: 768px) {
@@ -137,7 +142,6 @@
     padding-top: 168px;
   }
   .collection__title {
-    font-size: 32px;
     margin-bottom: 64px;
   }
   .table {
@@ -223,7 +227,6 @@
     padding-top: 236px;
   }
   .collection__title {
-    font-size: 45px;
     margin-bottom: 90px;
   }
   .table {
