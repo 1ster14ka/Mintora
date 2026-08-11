@@ -1,3 +1,6 @@
+body.no-scroll {
+  overflow: hidden;
+}
 .page {
   transition: transform 0.4s ease;
 }

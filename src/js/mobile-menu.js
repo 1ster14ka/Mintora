@@ -33,8 +33,11 @@ menu.addEventListener('touchend', event => {
 function openModal() {
   page.classList.add('is-menu-open');
   btnMenu.classList.add('is-open');
+  // console.dir(document.body);
+  document.body.classList.add('no-scroll');
 }
 function closeModal() {
   page.classList.remove('is-menu-open');
   btnMenu.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
 }
