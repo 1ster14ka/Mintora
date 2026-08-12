@@ -1,38 +1,20 @@
+import hero1 from '../img/hero/hero-1.jpg';
+import hero2 from '../img/hero/hero-2.jpg';
+import hero3 from '../img/hero/hero-3.jpg';
+import hero4 from '../img/hero/hero-4.jpg';
+import hero5 from '../img/hero/hero-5.jpg';
+import sprite from '../img/sprite.svg';
+
 const heroImgWrapper = document.querySelector('.hero__img-wrapper');
 const btnPrev = document.querySelector('.hero__arrow-btn--prev');
 const btnNext = document.querySelector('.hero__arrow-btn--next');
 
 const heroImages = [
-  {
-    id: 1,
-    title: 'Abstract Dreams',
-    creator: 'Alex Morgan',
-    image: '../img/hero/hero-1.jpg',
-  },
-  {
-    id: 2,
-    title: 'Digital Nature',
-    creator: 'Emma Wilson',
-    image: '../img/hero/hero-2.jpg',
-  },
-  {
-    id: 3,
-    title: 'Neon Future',
-    creator: 'Daniel Smith',
-    image: '../img/hero/hero-3.jpg',
-  },
-  {
-    id: 4,
-    title: 'Silent Space',
-    creator: 'Olivia Brown',
-    image: '../img/hero/hero-4.jpg',
-  },
-  {
-    id: 5,
-    title: 'Cyber City',
-    creator: 'James Miller',
-    image: '../img/hero/hero-5.jpg',
-  },
+  { id: 1, image: hero1 },
+  { id: 2, image: hero2 },
+  { id: 3, image: hero3 },
+  { id: 4, image: hero4 },
+  { id: 5, image: hero5 },
 ];
 let indx = 0;
 btnPrev.disabled = true;
@@ -80,7 +62,7 @@ function markupImgs(arr) {
             alt=""
           />
 <svg class="hero__arrow">
-          <use href="../img/sprite.svg#arrow"></use>
+          <use href="${sprite}"></use>
         </svg>
           <img
             class="hero__img hero__img--right"
