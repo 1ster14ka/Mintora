@@ -7,31 +7,31 @@ const heroImages = [
     id: 1,
     title: 'Abstract Dreams',
     creator: 'Alex Morgan',
-    image: './img/hero/hero-1.jpg',
+    image: '../img/hero/hero-1.jpg',
   },
   {
     id: 2,
     title: 'Digital Nature',
     creator: 'Emma Wilson',
-    image: './img/hero/hero-2.jpg',
+    image: '../img/hero/hero-2.jpg',
   },
   {
     id: 3,
     title: 'Neon Future',
     creator: 'Daniel Smith',
-    image: './img/hero/hero-3.jpg',
+    image: '../img/hero/hero-3.jpg',
   },
   {
     id: 4,
     title: 'Silent Space',
     creator: 'Olivia Brown',
-    image: './img/hero/hero-4.jpg',
+    image: '../img/hero/hero-4.jpg',
   },
   {
     id: 5,
     title: 'Cyber City',
     creator: 'James Miller',
-    image: './img/hero/hero-5.jpg',
+    image: '../img/hero/hero-5.jpg',
   },
 ];
 let indx = 0;
@@ -80,7 +80,7 @@ function markupImgs(arr) {
             alt=""
           />
 <svg class="hero__arrow">
-          <use href="./img/sprite.svg#arrow"></use>
+          <use href="../img/sprite.svg#arrow"></use>
         </svg>
           <img
             class="hero__img hero__img--right"
