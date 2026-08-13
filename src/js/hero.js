@@ -62,7 +62,7 @@ function markupImgs(arr) {
             alt=""
           />
 <svg class="hero__arrow">
-          <use href="${sprite}"></use>
+          <use href="${sprite}#arrow"></use>
         </svg>
           <img
             class="hero__img hero__img--right"

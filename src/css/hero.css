@@ -130,10 +130,12 @@
   display: flex;
   gap: 20px;
 }
-.hero__img--left {
-  border-radius: 13px;
+.hero__img {
   width: 208px;
   height: 210px;
+}
+.hero__img--left {
+  border-radius: 13px;
 }
 .hero__arrow {
   width: 59px;
@@ -194,10 +196,11 @@
   .hero__img-wrapper {
     justify-content: space-between;
   }
-  .hero__img--left {
+  .hero__img {
     width: 240px;
     height: 260px;
   }
+
   .hero__arrow {
     width: 80px;
     height: 77px;
