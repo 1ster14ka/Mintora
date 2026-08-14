@@ -53,6 +53,10 @@
   box-shadow: 39px 12px 59px 0 rgba(199, 199, 199, 0.6);
 }
 
+.nft-card--explore .nft-card__item:nth-child(n + 5) {
+  display: none;
+}
+
 .nft-card--explore .nft__img {
   border-radius: 19px;
 }
@@ -139,6 +143,9 @@
     padding: 10px 10px 14px;
     border-radius: 17px;
     box-shadow: 28px 8px 42px 0 rgba(199, 199, 199, 0.6);
+  }
+  .nft-card--explore .nft-card__item:nth-child(n) {
+    display: block;
   }
   .nft-card--explore .nft__img {
     border-radius: 17px;

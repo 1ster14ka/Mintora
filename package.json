@@ -17,6 +17,7 @@
   "author": "Viktor Ivanov <viktor.ivanov.2001y@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.19.0",
     "swiper": "^14.0.7",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
