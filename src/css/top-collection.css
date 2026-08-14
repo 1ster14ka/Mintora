@@ -107,6 +107,10 @@
   color: var(--color-positive);
 }
 
+.table__change--negative {
+  color: red;
+}
+
 .table__button {
   font-family: var(--font-family);
   width: 84px;

@@ -1,4 +1,5 @@
 import heroNft from '../img/hero/hero-nft.jpg';
+import sprite from '../img/sprite.svg';
 
 export const weeklyNfts = [
   {
@@ -128,7 +129,7 @@ function markupNftCards(arr) {
 
               <div class="nft-card__price">
                 <svg class="nft-card__icon">
-                  <use href="./img/sprite.svg#price-icon"></use>
+                  <use href="${sprite}#price-icon"></use>
                 </svg>
 
                 <span>${currentBid}</span>
