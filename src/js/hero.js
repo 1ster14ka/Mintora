@@ -1,74 +1,72 @@
-import hero1 from '../img/hero/hero-1.jpg';
-import hero2 from '../img/hero/hero-2.jpg';
-import hero3 from '../img/hero/hero-3.jpg';
-import hero4 from '../img/hero/hero-4.jpg';
-import hero5 from '../img/hero/hero-5.jpg';
 import sprite from '../img/sprite.svg';
+import { getAllNfts } from './utils/hero-api';
 
 const heroImgWrapper = document.querySelector('.hero__img-wrapper');
 const btnPrev = document.querySelector('.hero__arrow-btn--prev');
 const btnNext = document.querySelector('.hero__arrow-btn--next');
 
-const heroImages = [
-  { id: 1, image: hero1 },
-  { id: 2, image: hero2 },
-  { id: 3, image: hero3 },
-  { id: 4, image: hero4 },
-  { id: 5, image: hero5 },
-];
 let indx = 0;
 btnPrev.disabled = true;
 btnNext.addEventListener('click', slideNextImg);
-function slideNextImg() {
-  btnPrev.disabled = false;
+let nfts = [];
 
-  indx += 1;
-  if (indx + 2 === heroImages.length) {
-    btnNext.disabled = true;
+async function initHero() {
+  try {
+    nfts = await getAllNfts();
+    heroImgWrapper.innerHTML = markupImgs(nfts);
+    updateButtons();
+  } catch (err) {
+    console.error('Failed to load NFTs:', err);
   }
+}
 
+function updateHero() {
   heroImgWrapper.classList.add('is-changing');
 
   setTimeout(() => {
-    heroImgWrapper.innerHTML = markupImgs(heroImages);
+    heroImgWrapper.innerHTML = markupImgs(nfts);
     heroImgWrapper.classList.remove('is-changing');
+    updateButtons();
   }, 300);
+}
+function slideNextImg() {
+  if (indx < nfts.length - 2) {
+    indx += 1;
+    updateHero();
+  }
 }
 
 btnPrev.addEventListener('click', slidePrevImg);
 
 function slidePrevImg() {
-  btnNext.disabled = false;
-  indx -= 1;
-
-  if (indx === 0) {
-    btnPrev.disabled = true;
+  if (indx > 0) {
+    indx -= 1;
+    updateHero();
   }
-
-  heroImgWrapper.classList.add('is-changing');
-
-  setTimeout(() => {
-    heroImgWrapper.innerHTML = markupImgs(heroImages);
-    heroImgWrapper.classList.remove('is-changing');
-  }, 300);
 }
 
 function markupImgs(arr) {
   const currentImg = arr[indx];
   const nextImg = arr[indx + 1];
+  if (!currentImg || !nextImg) return '';
   return `<img
             class="hero__img hero__img--left"
-            src="${currentImg.image}"
-            alt=""
+            src="${currentImg.image?.cachedUrl}"
+            alt=${currentImg.name ?? ''}
           />
 <svg class="hero__arrow">
           <use href="${sprite}#arrow"></use>
         </svg>
           <img
             class="hero__img hero__img--right"
-            src="${nextImg.image}"
-            alt=""
+            src="${nextImg.image?.cachedUrl}"
+            alt=${currentImg.name ?? ''}
           />
           `;
 }
-heroImgWrapper.innerHTML = markupImgs(heroImages);
+initHero();
+
+function updateButtons() {
+  btnPrev.disabled = indx === 0;
+  btnNext.disabled = indx >= nfts.length - 2;
+}

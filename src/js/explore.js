@@ -1,11 +1,15 @@
-import { markupNftCards } from './components/nft-card';
-import { nfts } from './utils/data';
-import { updateTimers } from './utils/timer';
+import { markupNftCardsExplore } from './components/nft-card';
+import { getAllNfts } from './utils/hero-api';
+// import { updateTimers } from './utils/timer';
 
 const listCards = document.querySelector('.nft-card--explore');
-const exploreNfts = nfts.slice(0, 8);
-
-listCards.innerHTML = markupNftCards(exploreNfts);
-
+async function initExploreNfts() {
+  try {
+    const nfts = await getAllNfts();
+    listCards.innerHTML = markupNftCardsExplore(nfts.slice(0, 8));
+  } catch (err) {
+    console.log('explore cards:', err);
+  }
+}
+initExploreNfts();
 const items = [...listCards.children];
-updateTimers(items, nfts);
