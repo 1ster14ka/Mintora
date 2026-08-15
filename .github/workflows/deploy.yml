@@ -13,8 +13,10 @@ jobs:
 
       - name: Install and build 🔧
         run: |
-          npm install
-          npm run build
+            npm install
+            npm run build
+        env:
+            VITE_ALCHEMY_API_KEY: ${{ secrets.VITE_ALCHEMY_API_KEY }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
