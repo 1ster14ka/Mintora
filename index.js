@@ -1,101 +1,76 @@
-/* empty css                      */import{a as u,S as N,N as k}from"./assets/vendor-SJA_hCIU.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))s(t);new MutationObserver(t=>{for(const a of t)if(a.type==="childList")for(const c of a.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function n(t){const a={};return t.integrity&&(a.integrity=t.integrity),t.referrerPolicy&&(a.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?a.credentials="include":t.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function s(t){if(t.ep)return;t.ep=!0;const a=n(t);fetch(t.href,a)}})();const _="/Mintora/assets/sprite-D0bXH9w0.svg",w=[{address:"0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",slug:"pudgypenguins"},{address:"0xEd5AF388653567Af2F388E6224dC7C4b3241C544",slug:"azuki"},{address:"0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e",slug:"doodles-official"},{address:"0x1A92f7381B9F03921564a437210bB9396471050C",slug:"cool-cats-nft"},{address:"0x60E4d786628Fea6478F785A6d7e704777c86a7c6",slug:"mutant-ape-yacht-club"},{address:"0x49cF6f5d44E70224e2E23fDcdd2C053F30aDA28B",slug:"clonex"},{address:"0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6",slug:"cryptoadz-by-gremplin"}],f="alch_Jd_GJP81LG5ExQSHniAHI",P=`https://eth-mainnet.g.alchemy.com/nft/v3/${f}/getNFTsForContract`;async function $(){return(await Promise.all(w.map(async r=>(await u.get(P,{params:{contractAddress:r.address,withMetadata:!0,limit:2}})).data.nfts))).flat(1)}const p=document.querySelector(".hero__img-wrapper"),m=document.querySelector(".hero__arrow-btn--prev"),L=document.querySelector(".hero__arrow-btn--next");let i=0;m.disabled=!0;L.addEventListener("click",B);let l=[];async function T(){try{l=await $(),p.innerHTML=E(l),x()}catch(e){console.error("Failed to load NFTs:",e)}}function C(){p.classList.add("is-changing"),setTimeout(()=>{p.innerHTML=E(l),p.classList.remove("is-changing"),x()},300)}function B(){i<l.length-2&&(i+=1,C())}m.addEventListener("click",H);function H(){i>0&&(i-=1,C())}function E(e){var s,t;const r=e[i],n=e[i+1];return!r||!n?"":`<img
+/* empty css                      */import{a as l,S as F,N as P}from"./assets/vendor-SJA_hCIU.js";(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const a of s)if(a.type==="childList")for(const o of a.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&r(o)}).observe(document,{childList:!0,subtree:!0});function t(s){const a={};return s.integrity&&(a.integrity=s.integrity),s.referrerPolicy&&(a.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?a.credentials="include":s.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(s){if(s.ep)return;s.ep=!0;const a=t(s);fetch(s.href,a)}})();const p="/Mintora/assets/sprite-D0bXH9w0.svg";function h(e){return e.map(({identifier:n,name:t,image_url:r,floorPrice:s=null})=>`<li class="nft-card__item swiper-slide" data-id="${n}">
+          <div class="nft__img-wrapper">
+            <img class="nft__img" src="${r}" alt="" />
+            <div class="nft__timer">
+              <span>00H</span>
+              <span>00m</span>
+              <span>00s</span>
+            </div>
+          </div>
+
+          <h3 class="nft__name">${t}</h3>
+          <div class="nft-card__bid">
+            <div class="nft-card__bid-wrapper">
+              <span class="nft-card__label"> Current bid </span>
+
+              <div class="nft-card__price">
+                <svg class="nft-card__icon">
+                  <use href="${p}#price-icon"></use>
+                </svg>
+
+                <span>${s!=null?s.toFixed(2):0}</span>
+              </div>
+            </div>
+            <button class="nft-card__button">PLACE BID</button>
+          </div>
+        </li>`).join("")}const M=[{address:"0xBd3531dA5CF5857e7CfAA92426877b022e612cf8",slug:"pudgypenguins"},{address:"0xEd5AF388653567Af2F388E6224dC7C4b3241C544",slug:"azuki"},{address:"0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e",slug:"doodles-official"},{address:"0x1A92f7381B9F03921564a437210bB9396471050C",slug:"cool-cats-nft"},{address:"0x60E4d786628Fea6478F785A6d7e704777c86a7c6",slug:"mutant-ape-yacht-club"},{address:"0x49cF6f5d44E70224e2E23fDcdd2C053F30aDA28B",slug:"clonex"},{address:"0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6",slug:"cryptoadz-by-gremplin"}],d="alch_Jd_GJP81LG5ExQSHniAHI";async function T(){return(await Promise.all(M.map(async n=>(await l.get(`https://api.opensea.io/api/v2/chain/ethereum/contract/${n.address}/nfts`,{headers:{"x-api-key":`${d}`},params:{limit:2}})).data.nfts))).flat(1)}const u=document.querySelector(".hero__img-wrapper"),f=document.querySelector(".hero__arrow-btn--prev"),w=document.querySelector(".hero__arrow-btn--next");let i=0;f.disabled=!0;w.addEventListener("click",B);let c=[];async function q(){try{c=await T(),u.innerHTML=x(c),L()}catch(e){console.error("Failed to load NFTs:",e)}}function $(){u.classList.add("is-changing"),setTimeout(()=>{u.innerHTML=x(c),u.classList.remove("is-changing"),L()},300)}function B(){i<c.length-2&&(i+=1,$())}f.addEventListener("click",H);function H(){i>0&&(i-=1,$())}function x(e){const n=e[i],t=e[i+1];return!n||!t?"":`<img
             class="hero__img hero__img--left"
-            src="${(s=r.image)==null?void 0:s.cachedUrl}"
-            alt=${r.name??""}
+            src="${n.image_url}"
+            alt=${n.name??""}
           />
 <svg class="hero__arrow">
-          <use href="${_}#arrow"></use>
+          <use href="${p}#arrow"></use>
         </svg>
           <img
             class="hero__img hero__img--right"
-            src="${(t=n.image)==null?void 0:t.cachedUrl}"
-            alt=${r.name??""}
+            src="${t.image_url}"
+            alt=${n.name??""}
           />
-          `}T();function x(){m.disabled=i===0,L.disabled=i>=l.length-2}function I(e){return e.map(({id:r,collection:n,image:s,contract:t})=>{var d;const a=(n==null?void 0:n.name)??"Unknown collection",c=s==null?void 0:s.cachedUrl,o=(d=t==null?void 0:t.openSeaMetadata)==null?void 0:d.floorPrice;return`<li class="nft-card__item swiper-slide" data-id="${r}">
-          <div class="nft__img-wrapper">
-            <img class="nft__img" src="${c}" alt="" />
-            <div class="nft__timer">
-              <span>00H</span>
-              <span>00m</span>
-              <span>00s</span>
-            </div>
-          </div>
-
-          <h3 class="nft__name">${a}</h3>
-          <div class="nft-card__bid">
-            <div class="nft-card__bid-wrapper">
-              <span class="nft-card__label"> Current bid </span>
-
-              <div class="nft-card__price">
-                <svg class="nft-card__icon">
-                  <use href="${_}#price-icon"></use>
-                </svg>
-
-                <span>${o!=null?o.toFixed(2):0}</span>
-              </div>
-            </div>
-            <button class="nft-card__button">PLACE BID</button>
-          </div>
-        </li>`}).join("")}function U(e){return e.map(({id:r,name:n,image:s,creator:t,floorPrice:a})=>`<li class="nft-card__item swiper-slide" data-id="${r}">
-          <div class="nft__img-wrapper">
-            <img class="nft__img" src="${s}" alt="" />
-            <div class="nft__timer">
-              <span>00H</span>
-              <span>00m</span>
-              <span>00s</span>
-            </div>
-          </div>
-
-          <h3 class="nft__name">${n}</h3>
-          <div class="nft-card__bid">
-            <div class="nft-card__bid-wrapper">
-              <span class="nft-card__label"> Current bid </span>
-
-              <div class="nft-card__price">
-                <svg class="nft-card__icon">
-                  <use href="${_}#price-icon"></use>
-                </svg>
-
-                <span>${a?a.toFixed(2):0}</span>
-              </div>
-            </div>
-            <button class="nft-card__button">PLACE BID</button>
-          </div>
-        </li>`).join("")}const q="0xEd5AF388653567Af2F388E6224dC7C4b3241C544",D=`https://eth-mainnet.g.alchemy.com/nft/v3/${f}/getNFTsForContract`;async function O(){return(await u.get(D,{params:{contractAddress:q,withMetadata:!0,limit:20}})).data.nfts.map(n=>{var s,t,a,c;return{id:n.tokenId,image:(s=n.image)==null?void 0:s.cachedUrl,name:n.name,creator:(t=n.contract)==null?void 0:t.contractDeployer,floorPrice:(c=(a=n.contract)==null?void 0:a.openSeaMetadata)==null?void 0:c.floorPrice}})}const j=document.querySelector(".nft-card--weekly");async function W(){try{const e=await O();j.innerHTML=U(e)}catch(e){console.log("Weekly is error",e)}new N(".swiper",{modules:[k],loop:!0,slidesPerView:"auto",centeredSlides:!0,spaceBetween:40,centerInsufficientSlides:!0,navigation:{prevEl:".weekly-slider-prev",nextEl:".weekly-slider-next"}})}W();const X=`https://eth-mainnet.g.alchemy.com/nft/v3/${f}/getContractMetadata`;async function R(){return await Promise.all(w.map(async r=>{var t,a,c,o;const s=(await u.get(X,{params:{contractAddress:r.address}})).data;return{id:s.address,name:((t=s.openSeaMetadata)==null?void 0:t.collectionName)??s.name,username:(a=s.openSeaMetadata)!=null&&a.twitterUsername?`@${s.openSeaMetadata.twitterUsername}`:"",avatar:(c=s.openSeaMetadata)==null?void 0:c.imageUrl,volume:"-",change24h:0,floorPrice:((o=s.openSeaMetadata)==null?void 0:o.floorPrice)??null,items:Number(s.totalSupply)||0,owners:"-"}}))}const z=document.querySelector(".table"),G=z.querySelector(".table__body");async function J(){try{const e=await R();G.insertAdjacentHTML("beforeend",K(e))}catch(e){console.log("Collections error",e)}}J();function K(e){return e.map(({id:r,name:n,username:s,avatar:t,volume:a,change24h:c,floorPrice:o,owners:d,items:F})=>` <tr class="table__body-row" data-id="${r}">
+          `}q();function L(){f.disabled=i===0,w.disabled=i>=c.length-2}const I="https://api.opensea.io/api/v2/collections/trending";async function O(e){return(await l.get(I,{headers:{"x-api-key":`${d}`},params:{limit:e}})).data.collections.map(t=>({...t,identifier:t.collection,floorPrice:t.floorPrice||null}))}async function E(e,n){return(await l.get(`https://api.opensea.io/api/v2/collection/${e}/nfts`,{headers:{"x-api-key":d},params:{limit:1,cursor:n}})).data}async function D(){const e=await O(20);return(await Promise.all(e.map(t=>E(t.collection)))).flatMap(t=>t.nfts).filter(t=>t.image_url)}const X="https://api.opensea.io/api/v2/collections/top";async function C(e,n="one_day"){const r=(await l.get(X,{headers:{"x-api-key":`${d}`},params:{limit:e,timeframe:n}})).data.collections;return Promise.all(r.map(async s=>{const a=await j(s.collection);return{id:s.collection,name:s.name,username:s.instagram_username||s.twitter_username||"User",avatar:s.image_url,volume:a.volume,change24h:0,floorPrice:a.floor_price,owners:a.num_owners,items:0}}))}async function j(e){return(await l.get(`https://api.opensea.io/api/v2/collections/${e}/stats`,{headers:{"x-api-key":`${d}`}})).data.total}async function U(){const e=await C(20,"seven_days");return(await Promise.all(e.map(t=>E(t.id)))).flatMap(t=>t.nfts).filter(t=>t.image_url).map(t=>({...t,floorPrice:t.floorPrice||null}))}const W=document.querySelector(".nft-card--weekly");async function z(){try{const e=await U();console.log(e),W.innerHTML=h(e)}catch(e){console.log("Weekly is error",e)}new F(".swiper",{modules:[P],loop:!0,slidesPerView:"auto",centeredSlides:!0,spaceBetween:40,centerInsufficientSlides:!0,navigation:{prevEl:".weekly-slider-prev",nextEl:".weekly-slider-next"}})}z();const G=document.querySelector(".table"),J=G.querySelector(".table__body");async function K(){try{const e=await C(10);J.insertAdjacentHTML("beforeend",R(e))}catch(e){console.log("Collections error",e)}}K();function R(e){return e.map(({id:n,name:t,username:r,avatar:s,volume:a,change24h:o,floorPrice:b,owners:A,items:k})=>` <tr class="table__body-row" data-id="${n}">
           <td class="table__collection table__collection-visible">
             <div class="table__profile">
-              <img class="table__avatar" src="${t}" alt="" />
+              <img class="table__avatar" src="${s}" alt="" />
               <div class="table__info">
-                <p class="table__name">${n}</p>
-                <p class="table__username">${s}</p>
+                <p class="table__name">${t}</p>
+                <p class="table__username">${r}</p>
               </div>
             </div>
           </td>
           <td class="table__collection table__collection-visible">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="./img/sprite.svg#price-icon"></use>
+                <use href="${p}#price-icon"></use>
               </svg>
-              <span class="table__price">${a}</span>
+              <span class="table__price">${a!=null?a.toFixed(2):"0"}</span>
             </div>
-            <span class="table__change ${h(c)}">${y(c)}%</span>
+            <span class="table__change ${v(o)}">${y(o)}%</span>
           </td>
           <td class="table__collection">
-            <span class="table__change ${h(c)}">${y(c)}%</span>
+            <span class="table__change ${v(o)}">${y(o)}%</span>
           </td>
           <td class="table__collection">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="./img/sprite.svg#price-icon"></use>
+                <use href="${p}#price-icon"></use>
               </svg>
-              <span class="table__price">${o!=null?o.toFixed(2):"-"}</span>
+              <span class="table__price">${b!=null?b.toFixed(2):"-"}</span>
             </div>
           </td>
           <td class="table__collection">
-            <span class="table__text table__owners">${d}</span>
+            <span class="table__text table__owners">${A}</span>
           </td>
           <td class="table__collection">
-            <span class="table__text table__items">${F}</span>
+            <span class="table__text table__items">${k}</span>
           </td>
-        </tr>`).join("")}function h(e){return e>0?"table__change--positive":"table__change--negative"}function y(e){return e>0?`+ ${e}`:`- ${Math.abs(e)}`}const S=document.querySelector(".nft-card--explore");async function Q(){try{const e=await $();S.innerHTML=I(e.slice(0,8))}catch(e){console.log("explore cards:",e)}}Q();[...S.children];const g=document.querySelector(".nav__menu-button"),b=document.querySelector(".page"),A=document.querySelector(".mobile-menu");g.addEventListener("click",Y);b.addEventListener("click",V);function V(e){e.target.classList.contains("page")&&v()}document.addEventListener("keydown",e=>{e.key==="Escape"&&v()});let M=0;A.addEventListener("touchstart",e=>{M=e.changedTouches[0].screenX});A.addEventListener("touchend",e=>{e.changedTouches[0].screenX-M>80&&v()});function Y(){b.classList.add("is-menu-open"),g.classList.add("is-open"),document.body.classList.add("no-scroll")}function v(){b.classList.remove("is-menu-open"),g.classList.remove("is-open"),document.body.classList.remove("no-scroll")}
+        </tr>`).join("")}function v(e){return e>0?"table__change--positive":"table__change--negative"}function y(e){return e>0?`+ ${e}`:`- ${Math.abs(e)}`}const Q=document.querySelector(".nft-card--explore");async function V(){try{const e=await D();Q.innerHTML=h(e)}catch(e){console.log("explore cards:",e)}}V();const _=document.querySelector(".nav__menu-button"),m=document.querySelector(".page"),N=document.querySelector(".mobile-menu");_.addEventListener("click",Z);m.addEventListener("click",Y);function Y(e){e.target.classList.contains("page")&&g()}document.addEventListener("keydown",e=>{e.key==="Escape"&&g()});let S=0;N.addEventListener("touchstart",e=>{S=e.changedTouches[0].screenX});N.addEventListener("touchend",e=>{e.changedTouches[0].screenX-S>80&&g()});function Z(){m.classList.add("is-menu-open"),_.classList.add("is-open"),document.body.classList.add("no-scroll")}function g(){m.classList.remove("is-menu-open"),_.classList.remove("is-open"),document.body.classList.remove("no-scroll")}
 //# sourceMappingURL=index.js.map
