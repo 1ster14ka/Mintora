@@ -133,10 +133,9 @@
 .hero__img {
   width: 208px;
   height: 210px;
-}
-.hero__img--left {
   border-radius: 13px;
 }
+
 .hero__arrow {
   width: 59px;
   height: 56px;

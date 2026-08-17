@@ -32,3 +32,7 @@ export const collections = [
 ];
 
 export const apiKey = import.meta.env.VITE_ALCHEMY_API_KEY;
+
+console.log(
+  console.log('API KEY EXISTS:', !!import.meta.env.VITE_ALCHEMY_API_KEY)
+);
