@@ -1,19 +1,23 @@
 import axios from 'axios';
 import { apiKey, collections } from './data';
 
-const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v3/${apiKey}/getNFTsForContract`;
-
 export async function getAllNfts() {
   const allNfts = await Promise.all(
     collections.map(async collection => {
-      const response = await axios.get(baseURL, {
-        params: {
-          contractAddress: collection.address,
-          withMetadata: true,
-          limit: 2,
-        },
-      });
+      const response = await axios.get(
+        `https://api.opensea.io/api/v2/chain/ethereum/contract/${collection.address}/nfts`,
+        {
+          headers: {
+            'x-api-key': `${apiKey}`,
+          },
+          params: {
+            limit: 2,
+          },
+        }
+      );
+
       const data = response.data.nfts;
+
       return data;
     })
   );

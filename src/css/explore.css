@@ -58,7 +58,9 @@
 }
 
 .nft-card--explore .nft__img {
+  height: 255px;
   border-radius: 19px;
+  object-fit: cover;
 }
 
 .nft-card--explore .nft__timer {

@@ -1,32 +1,52 @@
 import axios from 'axios';
 import { apiKey, collections } from './data';
 
-const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v3/${apiKey}/getContractMetadata`;
+const baseURL = `https://api.opensea.io/api/v2/collections/top`;
 
-export async function getCollections() {
-  const data = await Promise.all(
+export async function getTopCollections(limit, days = 'one_day') {
+  const response = await axios.get(baseURL, {
+    headers: {
+      'x-api-key': `${apiKey}`,
+    },
+    params: {
+      limit: limit,
+      timeframe: days,
+    },
+  });
+
+  const collections = response.data.collections;
+
+  return Promise.all(
     collections.map(async collection => {
-      const response = await axios.get(baseURL, {
-        params: {
-          contractAddress: collection.address,
-        },
-      });
-      const data = response.data;
+      const stats = await getCollectionStats(collection.collection);
 
       return {
-        id: data.address,
-        name: data.openSeaMetadata?.collectionName ?? data.name,
-        username: data.openSeaMetadata?.twitterUsername
-          ? `@${data.openSeaMetadata.twitterUsername}`
-          : '',
-        avatar: data.openSeaMetadata?.imageUrl,
-        volume: '-',
+        id: collection.collection,
+        name: collection.name,
+        username:
+          collection.instagram_username ||
+          collection.twitter_username ||
+          'User',
+        avatar: collection.image_url,
+
+        volume: stats.volume,
         change24h: 0,
-        floorPrice: data.openSeaMetadata?.floorPrice ?? null,
-        items: Number(data.totalSupply) || 0,
-        owners: '-',
+        floorPrice: stats.floor_price,
+        owners: stats.num_owners,
+        items: 0,
       };
     })
   );
-  return data;
+}
+async function getCollectionStats(slug) {
+  const result = await axios.get(
+    `https://api.opensea.io/api/v2/collections/${slug}/stats`,
+    {
+      headers: {
+        'x-api-key': `${apiKey}`,
+      },
+    }
+  );
+
+  return result.data.total;
 }

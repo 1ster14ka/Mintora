@@ -1,4 +1,5 @@
 import sprite from '../img/sprite.svg';
+import { markupNftCard } from './components/nft-card';
 import { getAllNfts } from './utils/hero-api';
 
 const heroImgWrapper = document.querySelector('.hero__img-wrapper');
@@ -48,10 +49,11 @@ function slidePrevImg() {
 function markupImgs(arr) {
   const currentImg = arr[indx];
   const nextImg = arr[indx + 1];
+
   if (!currentImg || !nextImg) return '';
   return `<img
             class="hero__img hero__img--left"
-            src="${currentImg.image?.cachedUrl}"
+            src="${currentImg.image_url}"
             alt=${currentImg.name ?? ''}
           />
 <svg class="hero__arrow">
@@ -59,7 +61,7 @@ function markupImgs(arr) {
         </svg>
           <img
             class="hero__img hero__img--right"
-            src="${nextImg.image?.cachedUrl}"
+            src="${nextImg.image_url}"
             alt=${currentImg.name ?? ''}
           />
           `;

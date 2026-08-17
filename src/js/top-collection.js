@@ -1,4 +1,5 @@
-import { getCollections } from './utils/top-collection-api';
+import sprite from '../img/sprite.svg';
+import { getTopCollections } from './utils/top-collection-api';
 
 const tableEl = document.querySelector('.table');
 const tbodyEl = tableEl.querySelector('.table__body');
@@ -6,7 +7,7 @@ const tbodyEl = tableEl.querySelector('.table__body');
 
 async function initTipCollection() {
   try {
-    const collections = await getCollections();
+    const collections = await getTopCollections(10);
     tbodyEl.insertAdjacentHTML('beforeend', markupTopCollection(collections));
   } catch (error) {
     console.log('Collections error', error);
@@ -40,9 +41,9 @@ function markupTopCollection(arr) {
           <td class="table__collection table__collection-visible">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="./img/sprite.svg#price-icon"></use>
+                <use href="${sprite}#price-icon"></use>
               </svg>
-              <span class="table__price">${volume}</span>
+              <span class="table__price">${volume != null ? volume.toFixed(2) : '0'}</span>
             </div>
             <span class="table__change ${positiveOrNegativeClass(change24h)}">${positiveOrNegative(change24h)}%</span>
           </td>
@@ -52,7 +53,7 @@ function markupTopCollection(arr) {
           <td class="table__collection">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="./img/sprite.svg#price-icon"></use>
+                <use href="${sprite}#price-icon"></use>
               </svg>
               <span class="table__price">${floorPrice != null ? floorPrice.toFixed(2) : '-'}</span>
             </div>

@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { markupNftCardsWeekly } from './components/nft-card.js';
+import { markupNftCard } from './components/nft-card.js';
 import { weeklyNft } from './utils/weekly-api.js';
 
 const listCards = document.querySelector('.nft-card--weekly');
@@ -13,7 +13,9 @@ const listCards = document.querySelector('.nft-card--weekly');
 async function initWeeklyNft() {
   try {
     const nfts = await weeklyNft();
-    listCards.innerHTML = markupNftCardsWeekly(nfts);
+    console.log(nfts);
+
+    listCards.innerHTML = markupNftCard(nfts);
   } catch (error) {
     console.log('Weekly is error', error);
   }

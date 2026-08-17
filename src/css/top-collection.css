@@ -42,6 +42,11 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  gap: 10px;
+}
+.table__body-row > :nth-child(3),
+.table__body-row > :nth-child(6) {
+  flex: 0.5;
 }
 .table__body-row::after {
   content: '';
@@ -55,7 +60,9 @@
   display: none;
 }
 .table__collection-visible {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .table__profile {
   display: flex;

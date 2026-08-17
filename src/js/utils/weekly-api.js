@@ -1,25 +1,20 @@
-import axios from 'axios';
-import { apiKey } from './data';
-
-const contractAddress = '0xEd5AF388653567Af2F388E6224dC7C4b3241C544';
-const baseURL = `https://eth-mainnet.g.alchemy.com/nft/v3/${apiKey}/getNFTsForContract`;
+import { getCollectionNfts } from './nfts-api';
+import { getTopCollections } from './top-collection-api';
 
 export async function weeklyNft() {
-  const response = await axios.get(baseURL, {
-    params: {
-      contractAddress,
-      withMetadata: true,
+  const response = await getTopCollections(20, 'seven_days');
 
-      limit: 20,
-    },
-  });
+  const result = await Promise.all(
+    response.map(collection => getCollectionNfts(collection.id))
+  );
 
-  const weeklyCards = response.data.nfts.map(nft => ({
-    id: nft.tokenId,
-    image: nft.image?.cachedUrl,
-    name: nft.name,
-    creator: nft.contract?.contractDeployer,
-    floorPrice: nft.contract?.openSeaMetadata?.floorPrice,
-  }));
-  return weeklyCards;
+  return result
+    .flatMap(el => el.nfts)
+    .filter(el => el.image_url)
+    .map(el => {
+      return {
+        ...el,
+        floorPrice: el.floorPrice || null,
+      };
+    });
 }
