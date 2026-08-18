@@ -10,7 +10,7 @@ const listCards = document.querySelector('.nft-card--explore');
 
 async function initExploreNfts() {
   try {
-    const nfts = await getExploreNfts();
+    const nfts = await getExploreNfts(20);
 
     listCards.innerHTML = markupNftCard(nfts);
   } catch (err) {
@@ -18,8 +18,3 @@ async function initExploreNfts() {
   }
 }
 initExploreNfts();
-
-// const nfts = await getExploreNfts();
-// console.log(nfts);
-
-// console.log(await getExploreNfts());

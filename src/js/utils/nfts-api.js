@@ -20,8 +20,8 @@ export async function getCollectionNfts(slug, cursor) {
   return response.data;
 }
 
-export async function getExploreNfts() {
-  const collections = await getTrendingCollections(20);
+export async function getExploreNfts(limit) {
+  const collections = await getTrendingCollections(limit);
 
   const results = await Promise.all(
     collections.map(collection => getCollectionNfts(collection.collection))
@@ -29,5 +29,6 @@ export async function getExploreNfts() {
 
   return results
     .flatMap(result => result.nfts)
-    .filter(result => result.image_url);
+    .filter(result => result.image_url)
+    .slice(0, 8);
 }

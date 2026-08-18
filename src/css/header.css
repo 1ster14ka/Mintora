@@ -40,6 +40,8 @@
   color: var(--color-black);
 }
 .nav__link {
+  font-weight: 600;
+  font-family: var(--second-family);
   color: #606060;
   transition: color 0.25s;
 }

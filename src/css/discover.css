@@ -1,0 +1,17 @@
+.container-discover {
+  padding-top: 100px;
+}
+
+.discover-title {
+  margin-bottom: 30px;
+}
+
+.nft-card--discover .nft-card__item:nth-child(n) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav__link.active {
+  color: var(--color-black);
+}
