@@ -8,44 +8,54 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load
-      src="./partials/header.html"
-      icon-path="./img/sprite.svg#logo"
-      highlight-act="active"
-    />
+    <div class="page">
+      <load
+        src="./partials/header.html"
+        icon-path="./img/sprite.svg#logo"
+        highlight-act="active"
+      />
 
-    <main>
-      <div class="container container-discover">
-        <h1 class="discover-title">Discover NFTs</h1>
-        <div class="explore__sort">
-          <button class="explore__btn">All</button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="./img/sprite.svg#category-icon"></use>
-            </svg>
-            <span>Category</span>
-          </button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="./img/sprite.svg#collection-icon"></use>
-            </svg>
-            <span>Collection</span>
-          </button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="./img/sprite.svg#explore-price-icon"></use>
-            </svg>
-            <span>Price</span>
-          </button>
+      <main>
+        <div class="container container-discover">
+          <h1 class="discover-title">Discover NFTs</h1>
+          <div class="discover-wrapper">
+            <div class="explore__sort">
+              <button class="explore__btn">All</button>
+              <button class="explore__btn">
+                <svg class="explore__icon">
+                  <use href="./img/sprite.svg#category-icon"></use>
+                </svg>
+                <span>Category</span>
+              </button>
+              <div class="collection__btn-wrapper">
+                <button class="explore__btn btn-collection">
+                  <svg class="explore__icon">
+                    <use href="./img/sprite.svg#collection-icon"></use>
+                  </svg>
+                  <span>Collection</span>
+                </button>
+                <div class="btn__collection-filter"></div>
+              </div>
+              <button class="explore__btn">
+                <svg class="explore__icon">
+                  <use href="./img/sprite.svg#explore-price-icon"></use>
+                </svg>
+                <span>Price</span>
+              </button>
+            </div>
+          </div>
+          <ul class="nft-card nft-card--explore nft-card--discover"></ul>
+          <div class="loader-wrapper"><span class="loader"></span></div>
+          <div class="load-more-trigger"></div>
+          <load src="./partials/back-link.html" />
         </div>
-        <ul class="nft-card nft-card--explore nft-card--discover"></ul>
-        <div class="loader-wrapper"><span class="loader"></span></div>
-        <div class="load-more-trigger"></div>
-        <load src="./partials/back-link.html" />
-      </div>
-    </main>
+      </main>
 
-    <load src="./partials/footer.html" />
+      <load src="./partials/footer.html" />
+      <load src="./partials/mobile-menu.html" highlight-act="active" />
+    </div>
+
     <script type="module" src="./js/discover.js"></script>
+    <script type="module" src="./js/mobile-menu.js"></script>
   </body>
 </html>

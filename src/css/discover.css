@@ -6,7 +6,7 @@
   margin-bottom: 30px;
 }
 
-.nft-card--discover .nft-card__item:nth-child(n) {
+.nft-card--discover .nft-card__item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,4 +14,146 @@
 
 .nav__link.active {
   color: var(--color-black);
+}
+
+.collection__btn-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.btn__collection-filter {
+  display: none;
+
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  left: 50%;
+
+  width: 200%;
+  max-height: 220px;
+
+  transform: translateX(-50%);
+
+  padding: 6px;
+
+  flex-direction: column;
+  gap: 4px;
+
+  overflow-y: auto;
+
+  background: #fff;
+  border: 1px solid rgba(20, 20, 22, 0.08);
+  border-radius: 12px;
+
+  box-shadow:
+    0 10px 30px rgba(20, 20, 22, 0.12),
+    0 2px 8px rgba(20, 20, 22, 0.06);
+
+  animation: collectionDropdown 180ms ease-out;
+}
+
+.btn__collection-filter.is-open {
+  display: flex;
+}
+
+.btn__collection-filter button {
+  width: 100%;
+  min-height: 36px;
+
+  padding: 8px 10px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+
+  color: #141416;
+
+  cursor: pointer;
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.btn__collection-filter button:hover {
+  background: #f3f3f3;
+}
+
+.btn__collection-filter button:active {
+  transform: scale(0.98);
+}
+
+.btn__collection-filter button[data-more='true'] {
+  margin-top: 4px;
+
+  border-top: 1px solid rgba(20, 20, 22, 0.08);
+  border-radius: 0 0 8px 8px;
+
+  background: #141416;
+  color: #fff;
+
+  text-align: center;
+  font-weight: 600;
+}
+
+.btn__collection-filter button[data-more='true']:hover {
+  background: #2b2b2f;
+}
+
+.btn__collection-filter::-webkit-scrollbar {
+  width: 5px;
+}
+
+.btn__collection-filter::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.btn__collection-filter::-webkit-scrollbar-thumb {
+  background: rgba(20, 20, 22, 0.2);
+  border-radius: 10px;
+}
+
+.btn__collection-filter::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 20, 22, 0.35);
+}
+
+@keyframes collectionDropdown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn__collection-filter {
+    width: 200%;
+  }
+
+  .btn__collection-filter button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .btn__collection-filter {
+    width: 300%;
+    max-height: 280px;
+  }
+
+  .btn__collection-filter button {
+    font-size: 15px;
+  }
 }

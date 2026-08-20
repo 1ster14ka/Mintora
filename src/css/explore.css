@@ -13,10 +13,10 @@
   gap: 14px;
   margin-bottom: 75px;
 }
-.explore__btn:nth-of-type(1) {
+
+.explore__sort > .explore__btn:first-child {
   display: none;
 }
-
 .explore__btn {
   width: 100%;
   border: 1.42px solid #141416;
@@ -112,12 +112,11 @@
 }
 @media screen and (min-width: 768px) {
   .explore__sort {
-    /* justify-content: center; */
     max-width: 388px;
     margin: 0 auto 75px;
-    /* gap: 40px; */
   }
-  .explore__btn:nth-of-type(1) {
+
+  .explore__sort > .explore__btn:first-child {
     display: flex;
   }
   .explore__btn {
