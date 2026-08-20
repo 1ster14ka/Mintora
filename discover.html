@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 2</title>
     <script type="module" crossorigin src="/Mintora/discover.js"></script>
-    <link rel="modulepreload" crossorigin href="/Mintora/assets/data-Dx3yBxCc.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/mobile-menu-B7SUWgie.js">
     <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/vendor-CP3Yr33f.css">
-    <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-CLbTgn8F.css">
+    <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-DjPn2g_4.css">
   </head>
   <body>
-    <header class="header">
+    <div class="page">
+      <header class="header">
   <div class="container container-header">
     <nav class="nav">
       <div class="nav__brand">
@@ -71,39 +72,44 @@
 </header>
 
 
-    <main>
-      <div class="container container-discover">
-        <h1 class="discover-title">Discover NFTs</h1>
-        <div class="explore__sort">
-          <button class="explore__btn">All</button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="/Mintora/assets/sprite-D0bXH9w0.svg#category-icon"></use>
-            </svg>
-            <span>Category</span>
-          </button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="/Mintora/assets/sprite-D0bXH9w0.svg#collection-icon"></use>
-            </svg>
-            <span>Collection</span>
-          </button>
-          <button class="explore__btn">
-            <svg class="explore__icon">
-              <use href="/Mintora/assets/sprite-D0bXH9w0.svg#explore-price-icon"></use>
-            </svg>
-            <span>Price</span>
-          </button>
+      <main>
+        <div class="container container-discover">
+          <h1 class="discover-title">Discover NFTs</h1>
+          <div class="discover-wrapper">
+            <div class="explore__sort">
+              <button class="explore__btn">All</button>
+              <button class="explore__btn">
+                <svg class="explore__icon">
+                  <use href="/Mintora/assets/sprite-D0bXH9w0.svg#category-icon"></use>
+                </svg>
+                <span>Category</span>
+              </button>
+              <div class="collection__btn-wrapper">
+                <button class="explore__btn btn-collection">
+                  <svg class="explore__icon">
+                    <use href="/Mintora/assets/sprite-D0bXH9w0.svg#collection-icon"></use>
+                  </svg>
+                  <span>Collection</span>
+                </button>
+                <div class="btn__collection-filter"></div>
+              </div>
+              <button class="explore__btn">
+                <svg class="explore__icon">
+                  <use href="/Mintora/assets/sprite-D0bXH9w0.svg#explore-price-icon"></use>
+                </svg>
+                <span>Price</span>
+              </button>
+            </div>
+          </div>
+          <ul class="nft-card nft-card--explore nft-card--discover"></ul>
+          <div class="loader-wrapper"><span class="loader"></span></div>
+          <div class="load-more-trigger"></div>
+          <a class="back-link" href="./index.html">Go back</a>
+
         </div>
-        <ul class="nft-card nft-card--explore nft-card--discover"></ul>
-        <div class="loader-wrapper"><span class="loader"></span></div>
-        <div class="load-more-trigger"></div>
-        <a class="back-link" href="./index.html">Go back</a>
+      </main>
 
-      </div>
-    </main>
-
-    <footer class="footer">
+      <footer class="footer">
   <div class="container footer__container">
     <a class="logo footer__logo" href="./index.html" aria-label="Site logo">
       <svg class="logo__icon footer__logo-icon">
@@ -161,6 +167,38 @@
     <p class="footer__copyright">© 2023 DiveSea All Rights Reserved.</p>
   </div>
 </footer>
+
+      <div class="mobile-menu">
+  <!-- <svg><use href="./img/sprite.svg#close-menu-icon"></use></svg> -->
+  <div class="search--open">
+    <svg class="search__icon">
+      <use href="/Mintora/assets/sprite-D0bXH9w0.svg#search"></use>
+    </svg>
+    <input
+      type="text"
+      class="search__input--mobile"
+      name="search"
+      placeholder="Search Art Work / Creator"
+    />
+  </div>
+  <ul class="nav__list--open">
+    <li class="nav__item">
+      <a class="nav__link active" href="./discover.html">Discover</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">creators</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">Sell</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">stats</a>
+    </li>
+  </ul>
+  <button class="button btn__wallet--open">Connect Wallet</button>
+</div>
+
+    </div>
 
   </body>
 </html>
