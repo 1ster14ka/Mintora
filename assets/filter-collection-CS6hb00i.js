@@ -1,0 +1,6 @@
+import{a as o}from"./vendor-SJA_hCIU.js";import{a as s}from"./nft-card-BeUULAcM.js";async function u(t=null){const e=await o.get("https://api.opensea.io/api/v2/events",{headers:{"x-api-key":s},params:{event_type:"listing",limit:100,...t&&{next:t}}});return{collections:e.data.asset_events.map(n=>({collection:n.asset.collection,chain:n.chain})),nfts:e.data.asset_events.map(n=>({...n.asset,floorPrice:Number(n.payment.quantity)/10**n.payment.decimals,chain:n.chain})).filter(n=>{var i;const a=(i=n==null?void 0:n.image_url)==null?void 0:i.trim();return a?!a.toLowerCase().split("?")[0].endsWith(".mp4"):!1}),next:e.data.next}}function d(t){const e=t.target.closest(".nft-card__item"),{chain:n,contract:a,identifier:i}=e.dataset;e&&(window.location.href=`nft.html?chain=${encodeURIComponent(n)}&contract=${encodeURIComponent(a)}&identifier=${encodeURIComponent(i)}`)}function f(t,e){t&&(t.innerHTML=`
+    ${r(e)}
+    <button data-more="true">Load More</button>
+  `,l(t))}function r(t){return t.map(e=>`<button  data-id="${e.collection}"
+          data-chain="${e.chain}">${c(e.collection)}</button>`).join("")}function c(t){return t.split("-").map(e=>e.charAt(0).toUpperCase()+e.slice(1)).join(" ")}function l(t){t.classList.add("is-open")}function h(t){t.classList.remove("is-open")}export{h as c,u as g,d as o,f as r};
+//# sourceMappingURL=filter-collection-CS6hb00i.js.map

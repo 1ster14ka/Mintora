@@ -8,6 +8,7 @@
     <script type="module" crossorigin src="/Mintora/index.js"></script>
     <link rel="modulepreload" crossorigin href="/Mintora/assets/nft-card-BeUULAcM.js">
     <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/filter-collection-CS6hb00i.js">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/vendor-CP3Yr33f.css">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/index-vRr7s4b0.css">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-CEq1Aaa1.css">
@@ -214,12 +215,15 @@
         </svg>
         <span>Category</span>
       </button>
-      <button class="explore__btn">
-        <svg class="explore__icon">
-          <use href="/Mintora/assets/sprite-D0bXH9w0.svg#collection-icon"></use>
-        </svg>
-        <span>Collection</span>
-      </button>
+      <div class="collection__btn-wrapper">
+        <button class="explore__btn btn-collection">
+          <svg class="explore__icon">
+            <use href="/Mintora/assets/sprite-D0bXH9w0.svg#collection-icon"></use>
+          </svg>
+          <span>Collection</span>
+        </button>
+        <div class="btn__collection-filter"></div>
+      </div>
       <button class="explore__btn">
         <svg class="explore__icon">
           <use href="/Mintora/assets/sprite-D0bXH9w0.svg#explore-price-icon"></use>
