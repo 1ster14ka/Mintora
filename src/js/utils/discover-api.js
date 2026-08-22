@@ -16,10 +16,20 @@ export async function getDiscoverNfts(cursor = null) {
     },
   });
 
+  console.log(response.data.asset_events);
+
   return {
-    collection: response.data.asset_events.map(event => event.asset.collection),
+    collections: response.data.asset_events.map(event => ({
+      collection: event.asset.collection,
+      chain: event.chain,
+    })),
     nfts: response.data.asset_events
-      .map(event => event.asset)
+      .map(event => ({
+        ...event.asset,
+        floorPrice:
+          Number(event.payment.quantity) / 10 ** event.payment.decimals,
+        chain: event.chain,
+      }))
       .filter(nft => {
         const img = nft?.image_url?.trim();
         if (!img) return false;

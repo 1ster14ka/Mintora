@@ -3,6 +3,7 @@ import { markupNftCard } from './components/nft-card';
 import { getDiscoverNfts } from './utils/discover-api';
 import { getCollectionNfts } from './utils/filter-collection-api';
 import { closeWrapper, renderCollectionFilter } from './filter-collection';
+// import { getNftInformation } from './nft-info';
 
 const listCards = document.querySelector('.nft-card');
 const trigger = document.querySelector('.load-more-trigger');
@@ -13,10 +14,23 @@ const wrapper = document.querySelector('.btn__collection-filter');
 let discoverCursor = null;
 let collectionCursor = null;
 let selectedCollection = null;
+let selectedChain = null;
 let isLoading = false;
 let collections = [];
 
 sortEl.addEventListener('click', sortedNfts);
+listCards.addEventListener('click', openNftInformation);
+
+function openNftInformation(event) {
+  const item = event.target.closest('.nft-card__item');
+  const { chain, contract, identifier } = item.dataset;
+  if (!item) return;
+  // getNftInformation(chain, contract, identifier);
+  console.log(item);
+  window.location.href = `nft.html?chain=${encodeURIComponent(chain)}&contract=${encodeURIComponent(contract)}&identifier=${encodeURIComponent(identifier)}`;
+
+  // console.log(chain, contract, identifier);
+}
 
 document.addEventListener('click', event => {
   if (
@@ -31,6 +45,8 @@ function sortedNfts(event) {
   const button = event.target.closest('button');
   if (!button) return;
   if (button.classList.contains('btn-collection')) {
+    // console.log(collections);
+
     renderCollectionFilter(wrapper, collections);
 
     return;
@@ -42,19 +58,26 @@ function sortedNfts(event) {
   if (button.dataset.id) {
     wrapper.innerHTML = '';
     closeWrapper(wrapper);
-    initFilterCollection(button.dataset.id);
+    console.log(button.dataset.id);
+
+    initFilterCollection(button.dataset.id, button.dataset.chain);
   }
 }
 
-async function initFilterCollection(slug) {
+async function initFilterCollection(slug, chain) {
   isLoading = true;
   loaderShow();
   try {
     const result = await getCollectionNfts(slug);
     selectedCollection = slug;
+    selectedChain = chain;
 
     collectionCursor = result.next;
-    listCards.innerHTML = markupNftCard(result.nfts);
+    const nfts = result.nfts.map(nft => ({
+      ...nft,
+      chain,
+    }));
+    listCards.innerHTML = markupNftCard(nfts);
   } catch (error) {
     console.log(error);
   } finally {
@@ -70,10 +93,20 @@ async function initDiscover() {
 
     const result = await getDiscoverNfts();
     discoverCursor = result.next;
-
-    collections = result.collection.filter(
-      (collection, i, arr) => arr.indexOf(collection) === i
-    );
+    console.log(result);
+    collections = [
+      ...new Map(
+        result.collections.map(collection => [
+          collection.collection,
+          collection,
+        ])
+      ).values(),
+    ];
+    // collections = result.collection.filter(
+    //   (collection, i, arr) => arr.indexOf(collection) === i
+    // );
+    // console.log(collections);
+    console.log(result);
 
     listCards.insertAdjacentHTML('beforeend', markupNftCard(result.nfts));
   } catch (error) {
@@ -89,8 +122,11 @@ async function loadMoreCollection() {
 
   try {
     const result = await getDiscoverNfts(discoverCursor);
+    console.log(result);
+
     discoverCursor = result.next;
-    collections = [...new Set([...collections, ...result.collection])];
+    collections = [...new Set([...collections, ...result.nfts])];
+    console.log(collections);
 
     renderCollectionFilter(wrapper, collections);
   } catch (error) {
@@ -127,9 +163,13 @@ async function loadMoreCollectionNfts() {
       selectedCollection,
       collectionCursor
     );
+    const nfts = result.nfts.map(nft => ({
+      ...nft,
+      chain: selectedChain,
+    }));
 
     collectionCursor = result.next;
-    listCards.insertAdjacentHTML('beforeend', markupNftCard(result.nfts));
+    listCards.insertAdjacentHTML('beforeend', markupNftCard(nfts));
   } catch (error) {
     console.log(error);
   } finally {

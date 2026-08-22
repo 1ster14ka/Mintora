@@ -11,7 +11,8 @@ export function renderCollectionFilter(wrapper, collections) {
 function markupCollectionButtons(collections) {
   return collections
     .map(collection => {
-      return `<button data-id="${collection}">${formatCollectionName(collection)}</button>`;
+      return `<button  data-id="${collection.collection}"
+          data-chain="${collection.chain}">${formatCollectionName(collection.collection)}</button>`;
     })
     .join('');
 }

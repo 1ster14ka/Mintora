@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 2</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <load
+        src="./partials/header.html"
+        icon-path="./img/sprite.svg#logo"
+        highlight-act="active"
+      />
+
+      <main>
+        <div class="container container-discover">
+          <div class="main__nft-card">
+            <!-- <div class="nft__card-image--wrapper">
+              <img src="" alt="" />
+            </div>
+            <div class="nft__card-info--wrapper">
+              <h3 class="nft__card-title">Name</h3>
+              <p class="nft__card-description">Description</p>
+            </div>
+            <div class="nft__card-user">
+              <div class="creator">
+                <img src="" alt="" />
+                <p>name</p>
+                <p>twitter_username</p>
+                <p>opensea_url</p>
+              </div>
+              <div class="owner">
+                <img src="" alt="" />
+                <p>userName</p>
+                <p>followers</p>
+                <p>Updated_at</p>
+              </div>
+            </div>
+            <button>Place Bid</button> -->
+          </div>
+
+          <div class="nft__card-owner">
+            <h2 class="nft__card-owner-title">More NFTs from this owner</h2>
+            <ul
+              class="nft-card nft-card--explore nft-card--discover nft-card--owner"
+            ></ul>
+          </div>
+          <load src="./partials/back-link.html" />
+        </div>
+      </main>
+
+      <load src="./partials/footer.html" />
+      <load src="./partials/mobile-menu.html" highlight-act="active" />
+    </div>
+
+    <!-- <script type="module" src="./js/discover.js"></script> -->
+    <script type="module" src="./js/mobile-menu.js"></script>
+    <script type="module" src="./js/nft-info.js"></script>
+  </body>
+</html>

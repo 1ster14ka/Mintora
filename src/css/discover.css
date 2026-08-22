@@ -5,6 +5,9 @@
 .discover-title {
   margin-bottom: 30px;
 }
+.nft-card--discover .nft-card__item:nth-child(n) {
+  display: flex;
+}
 
 .nft-card--discover .nft-card__item {
   display: flex;
