@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { apiKey } from './data';
+import { getDiscoverNfts } from './discover-api';
 
 const baseURL = `https://api.opensea.io/api/v2/collections/trending`;
 
@@ -20,4 +21,22 @@ export async function getTrendingCollections(limit) {
       floorPrice: el.floorPrice || null,
     };
   });
+}
+
+export async function getCollections(cursor = null) {
+  const result = await getDiscoverNfts(cursor);
+
+  const collections = [
+    ...new Map(
+      result.collections.map(collection => [
+        `${collection.collection}-${collection.chain}`,
+        collection,
+      ])
+    ).values(),
+  ];
+
+  return {
+    collections,
+    next: result.next,
+  };
 }

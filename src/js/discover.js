@@ -3,13 +3,17 @@ import { markupNftCard } from './components/nft-card';
 import { getDiscoverNfts } from './utils/discover-api';
 import { getCollectionNfts } from './utils/filter-collection-api';
 import { closeWrapper, renderCollectionFilter } from './filter-collection';
-// import { getNftInformation } from './nft-info';
+import { openNftInformation } from './nft';
 
 const listCards = document.querySelector('.nft-card');
 const trigger = document.querySelector('.load-more-trigger');
 const collectionEl = document.querySelector('.collection__btn-wrapper');
 const sortEl = document.querySelector('.explore__sort');
 const wrapper = document.querySelector('.btn__collection-filter');
+
+const params = new URLSearchParams(window.location.search);
+const collection = params.get('collection');
+const chain = params.get('chain');
 
 let discoverCursor = null;
 let collectionCursor = null;
@@ -18,19 +22,12 @@ let selectedChain = null;
 let isLoading = false;
 let collections = [];
 
+if (collection) {
+  initFilterCollection(collection, chain);
+}
+
 sortEl.addEventListener('click', sortedNfts);
 listCards.addEventListener('click', openNftInformation);
-
-function openNftInformation(event) {
-  const item = event.target.closest('.nft-card__item');
-  const { chain, contract, identifier } = item.dataset;
-  if (!item) return;
-  // getNftInformation(chain, contract, identifier);
-  console.log(item);
-  window.location.href = `nft.html?chain=${encodeURIComponent(chain)}&contract=${encodeURIComponent(contract)}&identifier=${encodeURIComponent(identifier)}`;
-
-  // console.log(chain, contract, identifier);
-}
 
 document.addEventListener('click', event => {
   if (
@@ -45,8 +42,6 @@ function sortedNfts(event) {
   const button = event.target.closest('button');
   if (!button) return;
   if (button.classList.contains('btn-collection')) {
-    // console.log(collections);
-
     renderCollectionFilter(wrapper, collections);
 
     return;
@@ -58,7 +53,6 @@ function sortedNfts(event) {
   if (button.dataset.id) {
     wrapper.innerHTML = '';
     closeWrapper(wrapper);
-    console.log(button.dataset.id);
 
     initFilterCollection(button.dataset.id, button.dataset.chain);
   }
@@ -91,22 +85,10 @@ async function initDiscover() {
   try {
     loaderShow();
 
-    const result = await getDiscoverNfts();
+    const result = await getCollections();
+
     discoverCursor = result.next;
-    console.log(result);
-    collections = [
-      ...new Map(
-        result.collections.map(collection => [
-          collection.collection,
-          collection,
-        ])
-      ).values(),
-    ];
-    // collections = result.collection.filter(
-    //   (collection, i, arr) => arr.indexOf(collection) === i
-    // );
-    // console.log(collections);
-    console.log(result);
+    collections = result.collections;
 
     listCards.insertAdjacentHTML('beforeend', markupNftCard(result.nfts));
   } catch (error) {
@@ -121,12 +103,10 @@ async function loadMoreCollection() {
   if (!discoverCursor || isLoading) return;
 
   try {
-    const result = await getDiscoverNfts(discoverCursor);
-    console.log(result);
+    const result = await getCollections(discoverCursor);
 
     discoverCursor = result.next;
-    collections = [...new Set([...collections, ...result.nfts])];
-    console.log(collections);
+    collections = [...collections, ...result.collections];
 
     renderCollectionFilter(wrapper, collections);
   } catch (error) {
@@ -194,4 +174,8 @@ const observer = new IntersectionObserver(
 
 observer.observe(trigger);
 
-initDiscover();
+if (collection) {
+  initFilterCollection(collection, chain);
+} else {
+  initDiscover();
+}

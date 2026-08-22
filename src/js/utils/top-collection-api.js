@@ -21,6 +21,8 @@ export async function getTopCollections(limit, days = 'one_day') {
       const stats = await getCollectionStats(collection.collection);
 
       return {
+        chain: collection.contracts[0].chain,
+        contract: collection.contracts[0].address,
         id: collection.collection,
         name: collection.name,
         username:

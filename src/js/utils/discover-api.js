@@ -16,8 +16,6 @@ export async function getDiscoverNfts(cursor = null) {
     },
   });
 
-  console.log(response.data.asset_events);
-
   return {
     collections: response.data.asset_events.map(event => ({
       collection: event.asset.collection,

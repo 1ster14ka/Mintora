@@ -17,6 +17,7 @@ export async function getCollectionNfts(slug, cursor) {
       },
     }
   );
+
   return response.data;
 }
 
@@ -24,11 +25,21 @@ export async function getExploreNfts(limit) {
   const collections = await getTrendingCollections(limit);
 
   const results = await Promise.all(
-    collections.map(collection => getCollectionNfts(collection.collection))
+    collections.map(async collection => {
+      const nft = await getCollectionNfts(collection.collection);
+
+      return {
+        ...nft.nfts[0],
+        chain: collection.contracts[0].chain,
+        contract: collection.contracts[0].address,
+      };
+    })
   );
 
   return results
-    .flatMap(result => result.nfts)
+    .flatMap(result => {
+      return result;
+    })
     .filter(result => result.image_url)
     .slice(0, 8);
 }

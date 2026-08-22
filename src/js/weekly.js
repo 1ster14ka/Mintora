@@ -7,13 +7,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { markupNftCard } from './components/nft-card.js';
 import { weeklyNft } from './utils/weekly-api.js';
+import { openNftInformation } from './nft.js';
 
 const listCards = document.querySelector('.nft-card--weekly');
+
+listCards.addEventListener('click', openNftInformation);
 
 async function initWeeklyNft() {
   try {
     const nfts = await weeklyNft();
-    console.log(nfts);
 
     listCards.innerHTML = markupNftCard(nfts);
   } catch (error) {

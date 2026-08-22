@@ -5,11 +5,18 @@ export async function weeklyNft() {
   const response = await getTopCollections(20, 'seven_days');
 
   const result = await Promise.all(
-    response.map(collection => getCollectionNfts(collection.id))
+    response.map(async collection => {
+      const nft = await getCollectionNfts(collection.id);
+
+      return {
+        ...nft.nfts[0],
+        ...collection,
+      };
+    })
   );
 
   return result
-    .flatMap(el => el.nfts)
+    .flatMap(el => el)
     .filter(el => el.image_url)
     .map(el => {
       return {
