@@ -1,14 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 3</title>
+    <title>Page 2</title>
+    <script type="module" crossorigin src="/Mintora/nft.js"></script>
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/nft-card-BeUULAcM.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
+    <link rel="stylesheet" crossorigin href="/Mintora/assets/vendor-CP3Yr33f.css">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-CEq1Aaa1.css">
   </head>
   <body>
-    <header class="header">
+    <div class="page">
+      <header class="header">
   <div class="container container-header">
     <nav class="nav">
       <div class="nav__brand">
@@ -21,22 +26,22 @@
 
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link {=$highlight-act}" href="./discover.html"
+            <a class="nav__link active" href="./discover.html"
               >Discover</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link active" href="./page-3.html"
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
               >creators</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link active" href="./page-3.html"
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
               >Sell</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link active" href="./page-3.html"
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
               >stats</a
             >
           </li>
@@ -67,17 +72,45 @@
 </header>
 
 
-    <main>
-      <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> to page 3
-        </h1>
-        <a class="back-link" href="./index.html">Go back</a>
+      <main>
+        <div class="container container-discover">
+          <div class="main__nft-card">
+            <!-- <div class="nft__card-image--wrapper">
+              <img src="" alt="" />
+            </div>
+            <div class="nft__card-info--wrapper">
+              <h3 class="nft__card-title">Name</h3>
+              <p class="nft__card-description">Description</p>
+            </div>
+            <div class="nft__card-user">
+              <div class="creator">
+                <img src="" alt="" />
+                <p>name</p>
+                <p>twitter_username</p>
+                <p>opensea_url</p>
+              </div>
+              <div class="owner">
+                <img src="" alt="" />
+                <p>userName</p>
+                <p>followers</p>
+                <p>Updated_at</p>
+              </div>
+            </div>
+            <button>Place Bid</button> -->
+          </div>
 
-      </div>
-    </main>
+          <div class="nft__card-owner">
+            <h2 class="nft__card-owner-title">More NFTs from this owner</h2>
+            <ul
+              class="nft-card nft-card--explore nft-card--discover nft-card--owner"
+            ></ul>
+          </div>
+          <a class="back-link" href="./index.html">Go back</a>
 
-    <footer class="footer">
+        </div>
+      </main>
+
+      <footer class="footer">
   <div class="container footer__container">
     <a class="logo footer__logo" href="./index.html" aria-label="Site logo">
       <svg class="logo__icon footer__logo-icon">
@@ -136,5 +169,38 @@
   </div>
 </footer>
 
+      <div class="mobile-menu">
+  <!-- <svg><use href="./img/sprite.svg#close-menu-icon"></use></svg> -->
+  <div class="search--open">
+    <svg class="search__icon">
+      <use href="/Mintora/assets/sprite-D0bXH9w0.svg#search"></use>
+    </svg>
+    <input
+      type="text"
+      class="search__input--mobile"
+      name="search"
+      placeholder="Search Art Work / Creator"
+    />
+  </div>
+  <ul class="nav__list--open">
+    <li class="nav__item">
+      <a class="nav__link active" href="./discover.html">Discover</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">creators</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">Sell</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">stats</a>
+    </li>
+  </ul>
+  <button class="button btn__wallet--open">Connect Wallet</button>
+</div>
+
+    </div>
+
+    <!-- <script type="module" src="./js/discover.js"></script> -->
   </body>
 </html>
