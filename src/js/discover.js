@@ -85,7 +85,7 @@ async function initDiscover() {
   try {
     loaderShow();
 
-    const result = await getCollections();
+    const result = await getDiscoverNfts();
 
     discoverCursor = result.next;
     collections = result.collections;

@@ -4,6 +4,8 @@ import {
 } from './utils/nft-info-api';
 import { getInfoOwner, getOwnerAccount } from './utils/owner-api';
 import { markupNftCard, renderNftPage } from './components/nft-card';
+import { openNftInformation } from './nft';
+import { loaderHide, loaderShow } from './components/loader';
 
 const params = new URLSearchParams(window.location.search);
 
@@ -13,9 +15,12 @@ const identifier = params.get('identifier');
 
 const nftBlock = document.querySelector('.main__nft-card');
 const listCards = document.querySelector('.nft-card--owner');
+listCards.addEventListener('click', openNftInformation);
+const nftContent = document.querySelector('.nft-content');
 
 async function initNftPage() {
   try {
+    loaderShow();
     const nft = await getNftInformation(chain, contract, identifier);
 
     const owner = await getInfoOwner(nft.owners[0].address);
@@ -37,8 +42,11 @@ async function initNftPage() {
       renderNftPage(nft, collection, owner)
     );
     listCards.innerHTML = markupNftCard(ownerNfts);
+    nftContent.classList.add('is-loaded');
   } catch (error) {
     console.log(error);
+  } finally {
+    loaderHide();
   }
 }
 
