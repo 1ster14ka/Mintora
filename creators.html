@@ -1,14 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 3</title>
+    <title>Creators</title>
+    <script type="module" crossorigin src="/Mintora/creators.js"></script>
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/data-rSeLe94G.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/top-collection-api-DXM9PNhG.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/owner-api-DULqRX0-.js">
+    <link rel="stylesheet" crossorigin href="/Mintora/assets/vendor-CP3Yr33f.css">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-Dm3_PJN4.css">
   </head>
   <body>
-    <header class="header">
+    <div class="page">
+      <header class="header">
   <div class="container container-header">
     <nav class="nav">
       <div class="nav__brand">
@@ -26,17 +33,17 @@
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link {=$highlight-creators}" href="./creators.html"
+            <a class="nav__link active" href="./creators.html"
               >creators</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link active" href="./page-3.html"
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
               >Sell</a
             >
           </li>
           <li class="nav__item">
-            <a class="nav__link active" href="./page-3.html"
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
               >stats</a
             >
           </li>
@@ -67,17 +74,16 @@
 </header>
 
 
-    <main>
-      <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> to page 3
-        </h1>
-        <a class="back-link" href="./index.html">Go back</a>
+      <main class="main-creators">
+        <div class="container">
+          <h1 class="main-title">Meet Our Great Creators</h1>
+          <ul class="nft__creator-list"></ul>
+          <a class="back-link" href="./index.html">Go back</a>
 
-      </div>
-    </main>
+        </div>
+      </main>
 
-    <footer class="footer">
+      <footer class="footer">
   <div class="container footer__container">
     <a class="logo footer__logo" href="./index.html" aria-label="Site logo">
       <svg class="logo__icon footer__logo-icon">
@@ -135,6 +141,40 @@
     <p class="footer__copyright">© 2023 DiveSea All Rights Reserved.</p>
   </div>
 </footer>
+
+      <div class="mobile-menu">
+  <!-- <svg><use href="./img/sprite.svg#close-menu-icon"></use></svg> -->
+  <div class="search--open">
+    <svg class="search__icon">
+      <use href="/Mintora/assets/sprite-DOsRapQK.svg#search"></use>
+    </svg>
+    <input
+      type="text"
+      class="search__input--mobile"
+      name="search"
+      placeholder="Search Art Work / Creator"
+    />
+  </div>
+  <ul class="nav__list--open">
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-act}" href="./discover.html">Discover</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link active" href="./creators.html"
+        >creators</a
+      >
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">Sell</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">stats</a>
+    </li>
+  </ul>
+  <button class="button btn__wallet--open">Connect Wallet</button>
+</div>
+
+    </div>
 
   </body>
 </html>

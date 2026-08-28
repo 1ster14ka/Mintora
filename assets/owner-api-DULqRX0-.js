@@ -1,0 +1,2 @@
+import{a as s}from"./vendor-SJA_hCIU.js";import{a as t}from"./data-rSeLe94G.js";async function i(a){return(await s.get(`https://api.opensea.io/api/v2/accounts/${a}`,{headers:{"x-api-key":t}})).data}async function r(a,e){return(await s.get(`https://api.opensea.io/api/v2/chain/${a}/account/${e}/nfts`,{headers:{"x-api-key":t}})).data}export{r as a,i as g};
+//# sourceMappingURL=owner-api-DULqRX0-.js.map

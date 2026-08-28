@@ -1,20 +1,20 @@
-import{c as H,a as l,s as m,o as w,m as h}from"./assets/nft-D_4euyCQ.js";/* empty css                      */import{a as p,S as I,N as F}from"./assets/vendor-SJA_hCIU.js";import{g as W,r as $,c as U}from"./assets/filter-collection-oIQuFPUc.js";async function j(){return(await Promise.all(H.map(async n=>(await p.get(`https://api.opensea.io/api/v2/chain/ethereum/contract/${n.address}/nfts`,{headers:{"x-api-key":`${l}`},params:{limit:2}})).data.nfts))).flat(1)}const d=document.querySelector(".hero__img-wrapper"),g=document.querySelector(".hero__arrow-btn--prev"),x=document.querySelector(".hero__arrow-btn--next");let r=0;g.disabled=!0;x.addEventListener("click",B);let c=[];async function A(){try{c=await j(),d.innerHTML=N(c),C()}catch(e){console.error("Failed to load NFTs:",e)}}function k(){d.classList.add("is-changing"),setTimeout(()=>{d.innerHTML=N(c),d.classList.remove("is-changing"),C()},300)}function B(){r<c.length-2&&(r+=1,k())}g.addEventListener("click",O);function O(){r>0&&(r-=1,k())}function N(e){const n=e[r],t=e[r+1];return!n||!t?"":`<img
+import{c as H,a as d}from"./assets/data-rSeLe94G.js";/* empty css                      */import{s as u,o as w,m as h}from"./assets/nft-BD5lowNQ.js";import{a as _,S as I,N as F}from"./assets/vendor-SJA_hCIU.js";import{g as W,r as $,c as j}from"./assets/filter-collection-BvyAJE0u.js";import{g as x}from"./assets/top-collection-api-DXM9PNhG.js";async function A(){return(await Promise.all(H.map(async n=>(await _.get(`https://api.opensea.io/api/v2/chain/ethereum/contract/${n.address}/nfts`,{headers:{"x-api-key":`${d}`},params:{limit:2}})).data.nfts))).flat(1)}const l=document.querySelector(".hero__img-wrapper"),f=document.querySelector(".hero__arrow-btn--prev"),N=document.querySelector(".hero__arrow-btn--next");let a=0;f.disabled=!0;N.addEventListener("click",O);let r=[];async function B(){try{r=await A(),l.innerHTML=C(r),L()}catch(e){console.error("Failed to load NFTs:",e)}}function k(){l.classList.add("is-changing"),setTimeout(()=>{l.innerHTML=C(r),l.classList.remove("is-changing"),L()},300)}function O(){a<r.length-2&&(a+=1,k())}f.addEventListener("click",D);function D(){a>0&&(a-=1,k())}function C(e){const n=e[a],t=e[a+1];return!n||!t?"":`<img
             class="hero__img hero__img--left"
             src="${n.image_url}"
             alt=${n.name??""}
           />
 <svg class="hero__arrow">
-          <use href="${m}#arrow"></use>
+          <use href="${u}#arrow"></use>
         </svg>
           <img
             class="hero__img hero__img--right"
             src="${t.image_url}"
             alt=${n.name??""}
           />
-          `}A();function C(){g.disabled=r===0,x.disabled=r>=c.length-2}const R="https://api.opensea.io/api/v2/collections/trending";async function D(e){return(await p.get(R,{headers:{"x-api-key":`${l}`},params:{limit:e}})).data.collections.map(t=>({...t,identifier:t.collection,floorPrice:t.floorPrice||null}))}async function L(e=null){const n=await W(e);return{collections:[...new Map(n.collections.map(s=>[`${s.collection}-${s.chain}`,s])).values()],next:n.next}}async function S(e,n){return(await p.get(`https://api.opensea.io/api/v2/collection/${e}/nfts`,{headers:{"x-api-key":l},params:{limit:1,cursor:n}})).data}async function K(e){const n=await D(e);return(await Promise.all(n.map(async s=>({...(await S(s.collection)).nfts[0],chain:s.contracts[0].chain,contract:s.contracts[0].address})))).flatMap(s=>s).filter(s=>s.image_url).slice(0,8)}const V="https://api.opensea.io/api/v2/collections/top";async function E(e,n="one_day"){const s=(await p.get(V,{headers:{"x-api-key":`${l}`},params:{limit:e,timeframe:n}})).data.collections;return Promise.all(s.map(async a=>{const o=await z(a.collection);return{chain:a.contracts[0].chain,contract:a.contracts[0].address,id:a.collection,name:a.name,username:a.instagram_username||a.twitter_username||"User",avatar:a.image_url,volume:o.volume,change24h:0,floorPrice:o.floor_price,owners:o.num_owners,items:0}}))}async function z(e){return(await p.get(`https://api.opensea.io/api/v2/collections/${e}/stats`,{headers:{"x-api-key":`${l}`}})).data.total}async function G(){const e=await E(20,"seven_days");return(await Promise.all(e.map(async t=>({...(await S(t.id)).nfts[0],...t})))).flatMap(t=>t).filter(t=>t.image_url).map(t=>({...t,floorPrice:t.floorPrice||null}))}const T=document.querySelector(".nft-card--weekly");T.addEventListener("click",w);async function J(){try{const e=await G();T.innerHTML=h(e)}catch(e){console.log("Weekly is error",e)}new I(".swiper",{modules:[F],loop:!0,slidesPerView:"auto",centeredSlides:!0,spaceBetween:40,centerInsufficientSlides:!0,navigation:{prevEl:".weekly-slider-prev",nextEl:".weekly-slider-next"}})}J();const Q=document.querySelector(".table"),X=Q.querySelector(".table__body");async function Y(){try{const e=await E(10);X.insertAdjacentHTML("beforeend",Z(e))}catch(e){console.log("Collections error",e)}}Y();function Z(e){return e.map(({id:n,name:t,username:s,avatar:a,volume:o,change24h:u,floorPrice:b,owners:P,items:q})=>` <tr class="table__body-row" data-id="${n}">
+          `}B();function L(){f.disabled=a===0,N.disabled=a>=r.length-2}const K="https://api.opensea.io/api/v2/collections/trending";async function R(e){return(await _.get(K,{headers:{"x-api-key":`${d}`},params:{limit:e}})).data.collections.map(t=>({...t,identifier:t.collection,floorPrice:t.floorPrice||null}))}async function S(e=null){const n=await W(e);return{collections:[...new Map(n.collections.map(s=>[`${s.collection}-${s.chain}`,s])).values()],next:n.next}}async function E(e,n){return(await _.get(`https://api.opensea.io/api/v2/collection/${e}/nfts`,{headers:{"x-api-key":d},params:{limit:1,cursor:n}})).data}async function U(e){const n=await R(e);return(await Promise.all(n.map(async s=>({...(await E(s.collection)).nfts[0],chain:s.contracts[0].chain,contract:s.contracts[0].address})))).flatMap(s=>s).filter(s=>s.image_url).slice(0,8)}async function V(){const e=await x(20,"seven_days");return(await Promise.all(e.map(async t=>({...(await E(t.id)).nfts[0],...t})))).flatMap(t=>t).filter(t=>t.image_url).map(t=>({...t,floorPrice:t.floorPrice||null}))}const T=document.querySelector(".nft-card--weekly");T.addEventListener("click",w);async function z(){try{const e=await V();T.innerHTML=h(e)}catch(e){console.log("Weekly is error",e)}new I(".swiper",{modules:[F],loop:!0,slidesPerView:"auto",centeredSlides:!0,spaceBetween:40,centerInsufficientSlides:!0,navigation:{prevEl:".weekly-slider-prev",nextEl:".weekly-slider-next"}})}z();const G=document.querySelector(".table"),J=G.querySelector(".table__body");async function Q(){try{const e=await x(10);J.insertAdjacentHTML("beforeend",X(e))}catch(e){console.log("Collections error",e)}}Q();function X(e){return e.map(({id:n,name:t,username:s,avatar:m,volume:g,change24h:i,floorPrice:b,owners:q,items:P})=>` <tr class="table__body-row" data-id="${n}">
           <td class="table__collection table__collection-visible">
             <div class="table__profile">
-              <img class="table__avatar" src="${a}" alt="" />
+              <img class="table__avatar" src="${m}" alt="" />
               <div class="table__info">
                 <p class="table__name">${t}</p>
                 <p class="table__username">${s}</p>
@@ -24,28 +24,28 @@ import{c as H,a as l,s as m,o as w,m as h}from"./assets/nft-D_4euyCQ.js";/* empt
           <td class="table__collection table__collection-visible">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="${m}#price-icon"></use>
+                <use href="${u}#price-icon"></use>
               </svg>
-              <span class="table__price">${o!=null?o.toFixed(2):"0"}</span>
+              <span class="table__price">${g!=null?g.toFixed(2):"0"}</span>
             </div>
-            <span class="table__change ${y(u)}">${v(u)}%</span>
+            <span class="table__change ${y(i)}">${v(i)}%</span>
           </td>
           <td class="table__collection">
-            <span class="table__change ${y(u)}">${v(u)}%</span>
+            <span class="table__change ${y(i)}">${v(i)}%</span>
           </td>
           <td class="table__collection">
             <div class="table__price-wrapper">
               <svg class="table__icon">
-                <use href="${m}#price-icon"></use>
+                <use href="${u}#price-icon"></use>
               </svg>
               <span class="table__price">${b!=null?b.toFixed(2):"-"}</span>
             </div>
           </td>
           <td class="table__collection">
-            <span class="table__text table__owners">${P}</span>
+            <span class="table__text table__owners">${q}</span>
           </td>
           <td class="table__collection">
-            <span class="table__text table__items">${q}</span>
+            <span class="table__text table__items">${P}</span>
           </td>
-        </tr>`).join("")}function y(e){return e>0?"table__change--positive":"table__change--negative"}function v(e){return e>0?`+ ${e}`:`- ${Math.abs(e)}`}const M=document.querySelector(".nft-card--explore"),ee=document.querySelector(".explore__sort"),_=document.querySelector(".btn__collection-filter");let f=null,i=null;ee.addEventListener("click",te);async function te(e){const n=e.target.closest("button");if(n){if(n.classList.contains("btn-collection")){const t=await L();f=t.next,i=t.collections,$(_,i);return}if(n.dataset.id){_.innerHTML="",U(_);const{chain:t,id:s}=n.dataset;window.location.href=`discover.html?chain=${t}&collection=${s}`}if(n.dataset.more){ne();return}}}async function ne(){if(f)try{const e=await L(f);f=e.next,i=[...i,...e.collections],$(_,i)}catch(e){console.log(e)}}M.addEventListener("click",w);async function se(){try{const e=await K(20);M.innerHTML=h(e)}catch(e){console.log("explore cards:",e)}}se();
+        </tr>`).join("")}function y(e){return e>0?"table__change--positive":"table__change--negative"}function v(e){return e>0?`+ ${e}`:`- ${Math.abs(e)}`}const M=document.querySelector(".nft-card--explore"),Y=document.querySelector(".explore__sort"),c=document.querySelector(".btn__collection-filter");let p=null,o=null;Y.addEventListener("click",Z);async function Z(e){const n=e.target.closest("button");if(n){if(n.classList.contains("btn-collection")){const t=await S();p=t.next,o=t.collections,$(c,o);return}if(n.dataset.id){c.innerHTML="",j(c);const{chain:t,id:s}=n.dataset;window.location.href=`discover.html?chain=${t}&collection=${s}`}if(n.dataset.more){ee();return}}}async function ee(){if(p)try{const e=await S(p);p=e.next,o=[...o,...e.collections],$(c,o)}catch(e){console.log(e)}}M.addEventListener("click",w);async function te(){try{const e=await U(20);M.innerHTML=h(e)}catch(e){console.log("explore cards:",e)}}te();
 //# sourceMappingURL=index.js.map
