@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 2</title>
-    <script type="module" crossorigin src="/Mintora/nft.js"></script>
+    <title>Creator</title>
+    <script type="module" crossorigin src="/Mintora/account.js"></script>
     <link rel="modulepreload" crossorigin href="/Mintora/assets/data-rSeLe94G.js">
-    <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
-    <link rel="modulepreload" crossorigin href="/Mintora/assets/owner-api-DULqRX0-.js">
     <link rel="modulepreload" crossorigin href="/Mintora/assets/nft-card-BXbr5bNh.js">
-    <link rel="modulepreload" crossorigin href="/Mintora/assets/nft-CyXKnPQk.js">
-    <link rel="modulepreload" crossorigin href="/Mintora/assets/loader-CnGji9US.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/vendor-SJA_hCIU.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/discover-api-hEdItt07.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/collections-api-BXOPBCsG.js">
+    <link rel="modulepreload" crossorigin href="/Mintora/assets/owner-api-DULqRX0-.js">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/vendor-CP3Yr33f.css">
     <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-D2bVqBZ1.css">
   </head>
@@ -30,7 +30,7 @@
 
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link active" href="./discover.html"
+            <a class="nav__link {=$highlight-act}" href="./discover.html"
               >Discover</a
             >
           </li>
@@ -76,27 +76,10 @@
 </header>
 
 
-      <main class="nft-info-main">
-        <div class="container container-discover">
-          <div class="loader-wrapper"><span class="loader"></span></div>
-
-          <div class="nft-content">
-            <h2 class="nft-info-title">Product detail</h2>
-
-            <div class="main__nft-card"></div>
-
-            <div class="nft__card-owner">
-              <h2 class="nft__card-owner-title">More NFTs from this owner</h2>
-              <ul
-                class="nft-card nft-card--explore nft-card--discover nft-card--owner"
-              ></ul>
-            </div>
-          </div>
-          <div class="modal">
-            <div class="overlay">
-              <ul class="modal-list"></ul>
-            </div>
-          </div>
+      <main class="main-creator">
+        <div class="container container-account">
+          <!-- <h1 class="main-title">Meet Our Great Creators</h1> -->
+          <!-- <ul class="nft__creator-list"></ul> -->
         </div>
       </main>
 
@@ -174,7 +157,7 @@
   </div>
   <ul class="nav__list--open">
     <li class="nav__item">
-      <a class="nav__link active" href="./discover.html">Discover</a>
+      <a class="nav__link {=$highlight-act}" href="./discover.html">Discover</a>
     </li>
     <li class="nav__item">
       <a class="nav__link {=$highlight-creators}" href="./creators.html"
@@ -193,6 +176,6 @@
 
     </div>
 
-    <!-- <script type="module" src="./js/discover.js"></script> -->
+    <!-- <script type="module" src="./js/creators.js"></script> -->
   </body>
 </html>

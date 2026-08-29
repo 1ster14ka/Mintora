@@ -1,4 +1,4 @@
-const c="/Mintora/assets/sprite-DOsRapQK.svg";function o(a){return`<div class="creator">
+const c="/Mintora/assets/sprite-DOsRapQK.svg";function l(a){return`<div class="creator">
                 <div class="nft-info-wrapper">
                   <img src="${a.image_url}" alt="${a.name||"userName"}" class="img-nft creator-img"/>
                  <div class="nft-info-name-wrapper">
@@ -16,7 +16,7 @@ const c="/Mintora/assets/sprite-DOsRapQK.svg";function o(a){return`<div class="c
             <div class="nft__card-info--wrapper">
               <h3 class="nft__card-title">${a.name}</h3>
               <p class="nft__card-description">${a.description||"No description available."}</p>
-            </div>`}function l(a,n){return` <div class="owner">
+            </div>`}function p(a,s){return` <div class="owner">
                <div class="nft-info-wrapper">
                   <img src="${a.profile_image_url}" alt="${a.username||"userName"}" class="img-nft owner-img"/>
                 <div class="nft-info-name-wrapper">
@@ -26,13 +26,13 @@ const c="/Mintora/assets/sprite-DOsRapQK.svg";function o(a){return`<div class="c
                </div>
                <div class="nft-info-more">
                   <p class="owner-followers">${a.followers||0} followers</p>
-                  <p class="owner-update">Updated ${n.slice(0,10)}</p>
+                  <p class="owner-update">Updated ${s.slice(0,10)}</p>
                </div>
-              </div>`}function p(a){return a.map(({identifier:n,name:s,image_url:t,floorPrice:e=null,contract:r,chain:i})=>`<li class="nft-card__item swiper-slide" data-identifier="${n}"
-  data-contract="${r}"
-  data-chain="${i}">
+              </div>`}function o(a){return a.map(({identifier:s,name:n,image_url:e,floorPrice:r=null,contract:i,chain:t})=>`<li class="nft-card__item swiper-slide" data-identifier="${s}"
+  data-contract="${i}"
+  data-chain="${t}">
           <div class="nft__img-wrapper">
-            <img class="nft__img" src="${t}" alt="" />
+            <img class="nft__img" src="${e}" alt="" />
             <div class="nft__timer">
               <span>00H</span>
               <span>00m</span>
@@ -40,7 +40,7 @@ const c="/Mintora/assets/sprite-DOsRapQK.svg";function o(a){return`<div class="c
             </div>
           </div>
 
-          <h3 class="nft__name">${s}</h3>
+          <h3 class="nft__name">${n}</h3>
           <div class="nft-card__bid">
             <div class="nft-card__bid-wrapper">
               <span class="nft-card__label"> Current bid </span>
@@ -50,16 +50,16 @@ const c="/Mintora/assets/sprite-DOsRapQK.svg";function o(a){return`<div class="c
                   <use href="${c}#price-icon"></use>
                 </svg>
 
-                <span>${e!=null?e.toFixed(2):0}</span>
+                <span>${r!=null?r.toFixed(2):0}</span>
               </div>
             </div>
             <button class="nft-card__button">PLACE BID</button>
           </div>
-        </li>`).join("")}function f(a,n,s){return`${d(a)}
+        </li>`).join("")}function f(a,s,n){return`${d(a)}
   <div class="nft__card-user">
-  ${o(n)}
-      ${l(s,a.updated_at)}
+  ${l(s)}
+      ${p(n,a.updated_at)}
   </div>
             <button class="place-bid-btn">Place Bid</button>
-  `}function m(a){const n=a.target.closest(".nft-card__item"),{chain:s,contract:t,identifier:e}=n.dataset;n&&(window.location.href=`nft.html?chain=${encodeURIComponent(s)}&contract=${encodeURIComponent(t)}&identifier=${encodeURIComponent(e)}`)}export{p as m,m as o,f as r,c as s};
-//# sourceMappingURL=nft-BD5lowNQ.js.map
+  `}export{o as m,f as r,c as s};
+//# sourceMappingURL=nft-card-BXbr5bNh.js.map

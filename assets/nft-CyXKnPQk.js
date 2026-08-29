@@ -1,0 +1,2 @@
+function a(n){const t=n.target.closest(".nft-card__item"),{chain:o,contract:e,identifier:c}=t.dataset;t&&(window.location.href=`nft.html?chain=${encodeURIComponent(o)}&contract=${encodeURIComponent(e)}&identifier=${encodeURIComponent(c)}`)}function r(n){const t=n.target.closest(".nft__creator-item");if(!t)return;const o=t.dataset.address;window.location.href=`account.html?address=${encodeURIComponent(o)}`}export{r as a,a as o};
+//# sourceMappingURL=nft-CyXKnPQk.js.map
