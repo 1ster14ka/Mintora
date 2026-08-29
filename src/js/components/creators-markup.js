@@ -1,8 +1,8 @@
 export function markupCreators(arr) {
   return arr
     .map(
-      ({ avatar, username, nfts, floorPrice, owners, volume }) =>
-        `<li class="nft__creator-item">
+      ({ avatar, username, nfts, floorPrice, owners, volume, owner }) =>
+        `<li class="nft__creator-item" data-address="${owner}">
       <div class="nft__creator-bg"><img class="nft__creator-img-bg" src="${avatar}"/></div>
   <div class="nft__creator-wrapper">
   <img class="nft__creator-img" src="${avatar}"/></div>

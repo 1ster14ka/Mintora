@@ -1,6 +1,7 @@
 import { getTopCollections } from './utils/top-collection-api';
-import { getOwnerAccount } from './utils/owner-api';
+import { getInfoOwner, getOwnerAccount } from './utils/owner-api';
 import { markupCreators } from './components/creators-markup';
+import { openAccountInfo } from './nft';
 
 const listCreators = document.querySelector('.nft__creator-list');
 
@@ -17,10 +18,13 @@ async function getCreators() {
     })
   );
 }
+listCreators.addEventListener('click', openAccountInfo);
 
 async function initCreators() {
   try {
     const creators = await getCreators();
+    console.log(creators);
+
     listCreators.innerHTML = markupCreators(creators);
   } catch (error) {
     console.log(error);

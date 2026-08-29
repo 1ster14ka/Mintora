@@ -40,3 +40,16 @@ export async function getCollections(cursor = null) {
     next: result.next,
   };
 }
+
+export async function getAccountCollections(address) {
+  const response = await axios.get(
+    `https://api.opensea.io/api/v2/account/${address}/collections`,
+    {
+      headers: {
+        'x-api-key': apiKey,
+      },
+    }
+  );
+
+  return response.data;
+}

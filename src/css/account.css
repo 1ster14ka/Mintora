@@ -1,0 +1,211 @@
+.creator__info-wrapper {
+  padding: 90px 0;
+}
+.creator__info {
+}
+.creator__bg-wrapper {
+  width: 100%;
+  height: 270px;
+}
+.creator__bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-height: 270px;
+}
+.creator__img {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.creator__follow-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 85px;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.creator__follow-wrapper::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #d0d0d0;
+  bottom: 0;
+  left: 0;
+}
+.creator__names {
+  display: flex;
+  flex-direction: column;
+}
+.creator__name {
+  font-weight: 600;
+  font-size: 26px;
+
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #010101;
+}
+.creator__username {
+  font-weight: 400;
+  font-size: 13px;
+
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #93989a;
+}
+.creator__btn {
+  border-radius: 9px;
+  width: 91px;
+  height: 35px;
+  background: #000;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.creator__btn-unfollow {
+  display: none;
+}
+.creator__bio-wrapper {
+}
+
+.creator__bio {
+  position: relative;
+  margin-bottom: 90px;
+}
+.creator__bio::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #d0d0d0;
+  bottom: -64px;
+  left: 0;
+}
+
+.creator__bio-subscribes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.creator__followers {
+  display: flex;
+  flex-direction: column;
+}
+
+.creator__followers-count {
+  font-weight: 600;
+  font-size: 24px;
+
+  /* line-height: 31px; */
+  line-height: 1.25;
+  text-align: center;
+  color: #141416;
+}
+.creator__followers-text {
+  font-weight: 500;
+  font-size: 8px;
+
+  /* line-height: 12px; */
+  line-height: 1.5;
+  text-align: center;
+  color: #848586;
+}
+
+.creator__bio-subtitle {
+  font-weight: 700;
+  font-size: 18px;
+
+  /* line-height: 31px; */
+  line-height: 1.60772;
+  color: #c5c5c5;
+}
+.creatro__bio-text {
+  font-weight: 400;
+  font-size: 10px;
+
+  /* line-height: 19px; */
+  line-height: 1.77;
+  text-transform: capitalize;
+  color: #949494;
+}
+
+.creator__social-list {
+  gap: 50px;
+  margin-bottom: 84px;
+}
+
+.creator__social-icon {
+  fill: #000;
+}
+.creator__collection-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.creator__btn-collection {
+  width: 100%;
+  height: 20px;
+  font-weight: 500;
+  font-size: 12px;
+
+  /* line-height: 20px; */
+  text-align: center;
+  line-height: 1.53333;
+  color: #000;
+}
+
+.creator__btn-collection::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #141416;
+}
+.creator__collection-list {
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.creator__collection-list .nft-card__item {
+  max-width: 146px;
+}
+.creator__collection-list .nft__img {
+  height: 131px;
+}
+.creator__collection-list .nft__name {
+  font-size: 11px;
+}
+
+.creator__collection-list .nft-card__label {
+  font-size: 7px;
+}
+.creator__collection-list .nft-card__button {
+  border-radius: 6px;
+  padding: 4px 9px;
+  width: 63px;
+  height: 26px;
+  font-size: 7px;
+}
+.creator__collection-list .nft-card__icon {
+  width: 6px;
+  height: 10px;
+}
+
+.creator__collection-list .nft-card__price {
+  font-size: 8px;
+}
+.nft-card--explore {
+}
+.creator__activity {
+}
+.creator__activity-list {
+}
