@@ -41,12 +41,16 @@ export async function getCollections(cursor = null) {
   };
 }
 
-export async function getAccountCollections(address) {
+export async function getAccountCollections(address, cursor = null) {
   const response = await axios.get(
     `https://api.opensea.io/api/v2/account/${address}/collections`,
     {
       headers: {
         'x-api-key': apiKey,
+      },
+      params: {
+        limit: 10,
+        ...(cursor && { after: cursor }),
       },
     }
   );

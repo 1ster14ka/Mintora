@@ -1,9 +1,9 @@
 const loaderEl = document.querySelector('.loader');
 
-export function loaderHide() {
-  loaderEl.style.display = 'none';
+export function loaderHide(el) {
+  el.style.display = 'none';
 }
 
-export function loaderShow() {
-  loaderEl.style.display = 'block';
+export function loaderShow(el) {
+  el.style.display = 'block';
 }
