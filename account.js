@@ -1,77 +1,99 @@
-import{a as l}from"./assets/data-rSeLe94G.js";/* empty css                      */import{s as o,m as t}from"./assets/nft-card-BXbr5bNh.js";import{a as i}from"./assets/vendor-SJA_hCIU.js";import{b as e}from"./assets/collections-api-BXOPBCsG.js";import{g as n}from"./assets/owner-api-DULqRX0-.js";import"./assets/discover-api-hEdItt07.js";function _(s,a,r){return`
+import{a as x}from"./assets/data-rSeLe94G.js";/* empty css                      */import{s as l,m as g}from"./assets/nft-card-BXbr5bNh.js";import{l as m,a as y}from"./assets/loader-BH2-S8Ne.js";import{a as q}from"./assets/vendor-SJA_hCIU.js";import{b as w}from"./assets/collections-api-DT1BR3cO.js";import{g as C}from"./assets/owner-api-DULqRX0-.js";import"./assets/discover-api-hEdItt07.js";function N(t,e,s){return`
   <div class="creator__info-wrapper">
   <div class="creator__info">
   <div class="creator__bg-wrapper">
-    <img class="creator__bg" src="${s.banner_image_url}"/>
+    <img class="creator__bg" src="${t.banner_image_url}"/>
   </div>
-    <img class="creator__img" src="${s.profile_image_url}"/>
-    <div class="creator__follow-wrapper">
-      <p class="creator__names">
-      <span class="creator__name">${s.display_name}</span>
-      <span class="creator__username">@${s.username}</span>
-      </p>
-      <button class="creator__btn creator__btn-follow">Follow +</button>
-      <button class="creator__btn creator__btn-unfollow">Unfollow -</button>
-    </div>
-    <div class="creator__bio-wrapper">
-    <div class="creator__bio-subscribes">
-    <p class="creator__followers"><span class="creator__followers-count">${s.follower_count}</span><span class="creator__followers-text">Followers</span></p>
-    <p class="creator__followers"><span class="creator__followers-count">${s.following_count}</span><span class="creator__followers-text">Followings</span></p>
+    <img class="creator__img" src="${t.profile_image_url}"/>
+    <div class="creator__main-wrapper">
+    <div class="creator__left">
+      <div class="creator__follow-wrapper">
+        <p class="creator__names">
+        <span class="creator__name">${t.display_name||"User"}</span>
+        <span class="creator__username">@${t.username||"userName"}</span>
+        </p>
+        <button class="creator__btn creator__btn-follow">Follow +</button>
+        <button class="creator__btn creator__btn-unfollow">Unfollow -</button>
+      </div>
 
-    </div>
-    <div class="creator__bio">
-    <p class="creator__bio-subtitle">Bio</p>
-    <p class="creatro__bio-text">${s.bio}</p>
-    </div>
+        <div class="creator__bio-wrapper">
+        <div class="creator__bio-subscribes">
+        <p class="creator__followers"><span class="creator__followers-count">${t.follower_count}</span><span class="creator__followers-text">Followers</span></p>
+        <p class="creator__followers"><span class="creator__followers-count">${t.following_count}</span><span class="creator__followers-text">Followings</span></p>
 
-     <ul class="social__list creator__social-list">
-        <li class="social__item">
-          <a class="social__link" href="">
-            <svg class="social__icons creator__social-icon">
-              <use href="${o}#instagram-icon"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="social__item">
-          <a class="social__link" href="">
-            <svg class="social__icons creator__social-icon">
-              <use href="${o}#linkedIn-icon"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="social__item">
-          <a class="social__link" href="">
-            <svg class="social__icons creator__social-icon">
-              <use href="${o}#facebook-icon"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="social__item">
-          <a class="social__link" href="">
-            <svg class="social__icons creator__social-icon">
-              <use href="${o}#twitter-icon"></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="creator__collection-wrapper">
-    <button class="creator__btn-collection">Collection</button>
-    <button class="creator__btn-collection">Activity</button>
+        </div>
+        <div class="creator__bio">
+        <p class="creator__bio-subtitle">Bio</p>
+        <p class="creatro__bio-text">${t.bio||"Not Bio"}</p>
+        </div>
 
+         <ul class="social__list creator__social-list">
+            <li class="social__item">
+              <a class="social__link" href="">
+                <svg class="social__icons creator__social-icon">
+                  <use href="${l}#instagram-icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="">
+                <svg class="social__icons creator__social-icon">
+                  <use href="${l}#linkedIn-icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="">
+                <svg class="social__icons creator__social-icon">
+                  <use href="${l}#facebook-icon"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="">
+                <svg class="social__icons creator__social-icon">
+                  <use href="${l}#twitter-icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
     </div>
-    <ul class="creator__collection-list nft-card nft-card--explore">
-${t(a.collections)}
-    </ul>
+     <div class="creator__lists-wrapper">
+        <div class="creator__collection-wrapper">
+        <button class="creator__btn-action creator__btn-collection is-open">Collection</button>
+        <button class="creator__btn-action creator__btn-activity">Activity</button>
 
-    <div class="creator__activity">
-    <p>Activity</p>
-    <ul class="creator__activity-list">
-    </ul>
+        </div>
+        <ul class="creator__collection-list nft-card nft-card--explore is-open">
+    ${g(e.collections)}
+        </ul>
 
-    </div>
+
+
+        <ul class="creator__activity-list">
+        ${h(s.asset_events,t.display_name)}
+        </ul>
+     </div>
+   </div>
+
+
   </div>
 
   </div>
-  `}async function p(s){return(await i.get(`https://api.opensea.io/api/v2/events/accounts/${s}`,{headers:{"x-api-key":l},params:{limit:20,event_type:["sale","transfer","listing","offer"]}})).data}const u=new URLSearchParams(window.location.search),c=u.get("address"),m=document.querySelector(".container-account");console.log(c);async function v(){try{const[s,a,r]=await Promise.all([await n(c),await e(c),await p(c)]);console.log(s),console.log(a),console.log(r),m.innerHTML=_(s,a,r)}catch(s){console.log(s)}}v();
+  `}function h(t,e){return t.filter(s=>s.nft).map(({chain:s,event_timestamp:u,nft:{display_image_url:c,image_url:i,original_image_url:d,contract:r,collection:f,opensea_url:S,name:A},to_address:D,transfer_type:k})=>`<li class="creator__activity-item">
+            <div class="creator__activity-wrapper">
+                <div class="creator__activity-info">
+                <img class="creator__activity-img" src="${c||i||M(d)}"/>
+                <p class="creator__activity-names">
+                <span class="creator__activity-name">${A}</span>
+                <span class="creator__activity-username">@${e||"Not userName"}</span> <a href="${S}" target="_blank">Open Sea</a></p>
+                </div>
+
+                <div class="creator__activity-transfer">
+                <p class="creator__activity-type">${k}</p>
+                  <p class="creator__activity-date">${H(u)}</p>
+                </div>
+            </div>
+        </li>`).join("")}function M(t){return t?t.startsWith("ipfs://")?t.replace("ipfs://","https://ipfs.io/ipfs/"):t:""}function H(t){return new Date(t*1e3).toLocaleString("en-EN")}async function $(t,e){return(await q.get(`https://api.opensea.io/api/v2/events/accounts/${t}`,{headers:{"x-api-key":x},params:{limit:10,event_type:["sale","transfer","listing","offer"],...e&&{next:e}}})).data}const O=new URLSearchParams(window.location.search),a=O.get("address"),U=document.querySelector(".container-account"),j=document.querySelector(".load-more-trigger"),b=document.querySelector(".loader");let v=!0,o=!1,_=null,p=null,L;async function E(){o=!0,m(b);try{const[t,e,s]=await Promise.all([C(a),w(a),$(a)]);L=t.display_name,_=e.next,p=s.next,U.innerHTML=N(t,e,s);const u=document.querySelector(".creator__collection-wrapper"),c=document.querySelector(".creator__collection-list"),i=document.querySelector(".creator__activity-list");u.addEventListener("click",d=>{const r=[...document.querySelectorAll(".creator__btn-action")],f=d.target.closest(".creator__btn-action");if(f){if(f.classList.contains("creator__btn-collection")){n(r[0],r[1]),n(c,i),v=!0;return}v=!1,n(r[1],r[0]),n(i,c)}})}catch(t){console.log(t)}finally{o=!1,y(b)}}async function F(){if(!_||o)return;const t=document.querySelector(".loader-collection");try{o=!0,m(t);const e=await w(a,_),s=document.querySelector(".creator__collection-list");_=e.next,s.insertAdjacentHTML("beforeend",g(e.collections))}catch(e){console.log(e)}finally{y(t),o=!1}}async function T(){if(!p||o)return;const t=document.querySelector(".loader-collection");try{o=!0,m(t);const e=await $(a,p),s=document.querySelector(".creator__activity-list");p=e.next,s.insertAdjacentHTML("beforeend",h(e.asset_events,L))}catch(e){console.log(e)}finally{y(t),o=!1}}E();function n(t,e){t.classList.add("is-open"),e.classList.remove("is-open")}const B=new IntersectionObserver(t=>{!t[0].isIntersecting||o||(v?F():T())},{rootMargin:"400px"});B.observe(j);
 //# sourceMappingURL=account.js.map
