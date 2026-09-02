@@ -3,7 +3,11 @@ import { apiKey, collections } from './data';
 
 const baseURL = `https://api.opensea.io/api/v2/collections/top`;
 
-export async function getTopCollections(limit, days = 'one_day') {
+export async function getTopCollections(
+  limit,
+  days = 'one_day',
+  cursor = null
+) {
   const response = await axios.get(baseURL, {
     headers: {
       'x-api-key': `${apiKey}`,
@@ -11,13 +15,14 @@ export async function getTopCollections(limit, days = 'one_day') {
     params: {
       limit: limit,
       timeframe: days,
+      ...(cursor && { cursor }),
     },
   });
 
-  const collections = response.data.collections;
+  const data = response.data;
 
-  return Promise.all(
-    collections.map(async collection => {
+  const collections = await Promise.all(
+    data.collections.map(async collection => {
       const stats = await getCollectionStats(collection.collection);
 
       return {
@@ -40,6 +45,11 @@ export async function getTopCollections(limit, days = 'one_day') {
       };
     })
   );
+
+  return {
+    collections,
+    next: data.next,
+  };
 }
 async function getCollectionStats(slug) {
   const result = await axios.get(

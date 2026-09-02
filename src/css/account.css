@@ -323,8 +323,8 @@
     gap: 10px;
   }
   .creator__activity-date {
-    min-width: 130px;
-    max-width: 130px;
+    min-width: 140px;
+    max-width: 140px;
   }
 }
 

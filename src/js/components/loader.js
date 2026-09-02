@@ -1,4 +1,4 @@
-const loaderEl = document.querySelector('.loader');
+// const loaderEl = document.querySelector('.loader');
 
 export function loaderHide(el) {
   el.style.display = 'none';

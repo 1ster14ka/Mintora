@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <load src="./partials/header.html" highlight-sell="active" />
+
+      <main class="sell-main">
+        <div class="container container-sell">
+          <h1 class="sell__title">Create Your NFT</h1>
+          <div class="sell-wrapper">
+            <div class="sell__img-wrapper">
+              <div class="sell__preview">
+                <img class="sell__preview-image" src="" alt="NFT preview" />
+
+                <span class="sell__preview-text">
+                  PNG, GIF, WEBP, MP4 or MP3.<br />
+                  Max 1Gb.
+                </span>
+              </div>
+              <label class="sell__upload-button">
+                Upload
+                <input
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                  hidden
+                />
+              </label>
+            </div>
+            <form class="sell__form">
+              <label>
+                <span>Name</span>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="ArtWork Name"
+                /> </label
+              ><label for="description">
+                <span>Description</span>
+                <textarea
+                  class="description__textarea"
+                  name="description"
+                  id="description"
+                  placeholder="Enter Your Description"
+                ></textarea>
+              </label>
+              <div class="form-row">
+                <label for="royalty">
+                  <span>Royalty</span>
+                  <select class="royalty__select" name="royalty" id="royalty">
+                    <option value="">Royalty</option>
+                    <option value="5">5%</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                  </select>
+                </label>
+
+                <label for="size">
+                  <span>Size</span>
+                  <input
+                    type="number"
+                    name="size"
+                    id="size"
+                    placeholder="Ex - 100 x 100"
+                  />
+                </label>
+              </div>
+              <label for="tags">
+                <span>Tags</span>
+                <input
+                  type="text"
+                  name="tags"
+                  id="tags"
+                  placeholder="Beautiful Castle, Monkeys ETC"
+                />
+              </label>
+
+              <div class="form-row">
+                <label for="price">
+                  <span>Price</span>
+                  <div class="price-wrapper">
+                    <select
+                      class="currency__select"
+                      name="currency"
+                      id="currency"
+                    >
+                      <option value="ETH">ETH</option>
+                    </select>
+
+                    <input
+                      type="text"
+                      name="price"
+                      id="price"
+                      placeholder="0.00007"
+                      class="price__input"
+                    />
+                  </div>
+                </label>
+
+                <label for="stock">
+                  <span>In Stock</span>
+                  <select class="stock__select" name="stock" id="stock">
+                    <option value="1">1</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="form-toggle">
+                <span class="form-toggle-text">
+                  <span>Put On Sale</span>
+                  <span class="form-text--light">
+                    People Will Bids On Your NFT Project
+                  </span>
+                </span>
+                <input
+                  type="checkbox"
+                  name="putOnSale"
+                  id="put-on-sale"
+                  class="toggle-input"
+                />
+                <span class="toggle"></span>
+              </label>
+              <label class="form-toggle">
+                <span class="form-toggle-text">
+                  <span>Direct Sale</span>
+                  <span class="form-text--light">
+                    No Bids - Only Direct Salling
+                  </span>
+                </span>
+                <input
+                  type="checkbox"
+                  name="directSale"
+                  id="direct-sale"
+                  class="toggle-input"
+                />
+                <span class="toggle"></span>
+              </label>
+
+              <button type="submit" class="create-btn-form">Create</button>
+            </form>
+          </div>
+          <!-- <div class="loader-wrapper"><span class="loader"></span></div> -->
+        </div>
+      </main>
+
+      <load src="./partials/footer.html" />
+      <load src="./partials/mobile-menu.html" highlight-sell="active" />
+    </div>
+    <!-- <script type="module" src="./js/account-info.js"></script> -->
+
+    <script type="module" src="./js/mobile-menu.js"></script>
+  </body>
+</html>

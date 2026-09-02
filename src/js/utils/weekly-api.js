@@ -5,7 +5,7 @@ export async function weeklyNft() {
   const response = await getTopCollections(20, 'seven_days');
 
   const result = await Promise.all(
-    response.map(async collection => {
+    response.collections.map(async collection => {
       const nft = await getCollectionNfts(collection.id);
 
       return {

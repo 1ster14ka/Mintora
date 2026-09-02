@@ -21,6 +21,8 @@ const nftContent = document.querySelector('.nft-content');
 const modal = document.querySelector('.modal');
 const modalList = document.querySelector('.modal-list');
 
+const loaderEl = document.querySelector('.loader');
+
 listCards.addEventListener('click', openNftInformation);
 nftBlock.addEventListener('click', openPlaceBid);
 modal.addEventListener('click', modalFunction);
@@ -110,7 +112,7 @@ function closeModal(element) {
 
 async function initNftPage() {
   try {
-    loaderShow();
+    loaderShow(loaderEl);
     const nft = await getNftInformation(chain, contract, identifier);
 
     const owner = await getInfoOwner(nft.owners[0].address);
@@ -128,7 +130,7 @@ async function initNftPage() {
   } catch (error) {
     console.log(error);
   } finally {
-    loaderHide();
+    loaderHide(loaderEl);
   }
 }
 

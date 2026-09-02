@@ -4,6 +4,7 @@ import { getDiscoverNfts } from './utils/discover-api';
 import { getCollectionNfts } from './utils/filter-collection-api';
 import { closeWrapper, renderCollectionFilter } from './filter-collection';
 import { openNftInformation } from './nft';
+import { getCollections } from './utils/collections-api';
 
 const listCards = document.querySelector('.nft-card');
 const trigger = document.querySelector('.load-more-trigger');
@@ -14,6 +15,8 @@ const wrapper = document.querySelector('.btn__collection-filter');
 const params = new URLSearchParams(window.location.search);
 const collection = params.get('collection');
 const chain = params.get('chain');
+
+const loaderEl = document.querySelector('.loader');
 
 let discoverCursor = null;
 let collectionCursor = null;
@@ -60,7 +63,7 @@ function sortedNfts(event) {
 
 async function initFilterCollection(slug, chain) {
   isLoading = true;
-  loaderShow();
+  loaderShow(loaderEl);
   try {
     const result = await getCollectionNfts(slug);
     selectedCollection = slug;
@@ -76,14 +79,14 @@ async function initFilterCollection(slug, chain) {
     console.log(error);
   } finally {
     isLoading = false;
-    loaderHide();
+    loaderHide(loaderEl);
   }
 }
 
 async function initDiscover() {
   isLoading = true;
   try {
-    loaderShow();
+    loaderShow(loaderEl);
 
     const result = await getDiscoverNfts();
 
@@ -95,7 +98,7 @@ async function initDiscover() {
     console.log(error);
   } finally {
     isLoading = false;
-    loaderHide();
+    loaderHide(loaderEl);
   }
 }
 
@@ -119,7 +122,7 @@ async function loadMoreDiscover() {
 
   try {
     isLoading = true;
-    loaderShow();
+    loaderShow(loaderEl);
 
     const result = await getDiscoverNfts(discoverCursor);
 
@@ -128,7 +131,7 @@ async function loadMoreDiscover() {
   } catch (error) {
     console.log(error);
   } finally {
-    loaderHide();
+    loaderHide(loaderEl);
     isLoading = false;
   }
 }
@@ -136,7 +139,7 @@ async function loadMoreDiscover() {
 async function loadMoreCollectionNfts() {
   if (!collectionCursor || isLoading) return;
   isLoading = true;
-  loaderShow();
+  loaderShow(loaderEl);
 
   try {
     const result = await getCollectionNfts(
@@ -153,7 +156,7 @@ async function loadMoreCollectionNfts() {
   } catch (error) {
     console.log(error);
   } finally {
-    loaderHide();
+    loaderHide(loaderEl);
     isLoading = false;
   }
 }

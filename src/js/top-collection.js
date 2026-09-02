@@ -8,7 +8,11 @@ const tbodyEl = tableEl.querySelector('.table__body');
 async function initTipCollection() {
   try {
     const collections = await getTopCollections(10);
-    tbodyEl.insertAdjacentHTML('beforeend', markupTopCollection(collections));
+
+    tbodyEl.insertAdjacentHTML(
+      'beforeend',
+      markupTopCollection(collections.collections)
+    );
   } catch (error) {
     console.log('Collections error', error);
   }
