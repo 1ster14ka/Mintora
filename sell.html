@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator</title>
+    <script type="module" crossorigin src="/Mintora/assets/mobile-menu-Bg9cRT26.js"></script>
+    <link rel="stylesheet" crossorigin href="/Mintora/assets/styles-dZaYQDxE.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+  <div class="container container-header">
+    <nav class="nav">
+      <div class="nav__brand">
+        <a class="logo nav__logo" href="./index.html" aria-label="Site logo">
+          <svg class="logo__icon nav__logo-icon">
+            <use href="/Mintora/assets/sprite-DOsRapQK.svg#logo"></use>
+          </svg>
+          <span class="logo__text nav__logo-text">Mintora</span>
+        </a>
+
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-act}" href="./discover.html"
+              >Discover</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-creators}" href="./creators.html"
+              >creators</a
+            >
+          </li>
+          <li class="nav__item">
+            <a class="nav__link active" href="./sell.html">Sell</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {=$highlight-curr}" href="./page-3.html"
+              >stats</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav__actions">
+        <div class="search">
+          <svg class="search__icon">
+            <use href="/Mintora/assets/sprite-DOsRapQK.svg#search"></use>
+          </svg>
+          <input
+            type="text"
+            class="search__input"
+            name="search"
+            placeholder="Search Art Work / Creator"
+          />
+        </div>
+        <button class="button btn--wallet">Connect Wallet</button>
+      </div>
+      <button class="nav__menu-button">
+        <svg class="nav__menu-icon">
+          <use href="/Mintora/assets/sprite-DOsRapQK.svg#burger-menu"></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+
+      <main class="sell-main">
+        <div class="container container-sell">
+          <h1 class="sell__title">Create Your NFT</h1>
+          <div class="sell-wrapper">
+            <div class="sell__img-wrapper">
+              <div class="sell__preview">
+                <img class="sell__preview-image" src="" alt="NFT preview" />
+
+                <span class="sell__preview-text">
+                  PNG, GIF, WEBP, MP4 or MP3.<br />
+                  Max 1Gb.
+                </span>
+              </div>
+              <label class="sell__upload-button">
+                Upload
+                <input
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                  hidden
+                />
+              </label>
+            </div>
+            <form class="sell__form">
+              <label>
+                <span>Name</span>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="ArtWork Name"
+                /> </label
+              ><label for="description">
+                <span>Description</span>
+                <textarea
+                  class="description__textarea"
+                  name="description"
+                  id="description"
+                  placeholder="Enter Your Description"
+                ></textarea>
+              </label>
+              <div class="form-row">
+                <label for="royalty">
+                  <span>Royalty</span>
+                  <select class="royalty__select" name="royalty" id="royalty">
+                    <option value="">Royalty</option>
+                    <option value="5">5%</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                  </select>
+                </label>
+
+                <label for="size">
+                  <span>Size</span>
+                  <input
+                    type="number"
+                    name="size"
+                    id="size"
+                    placeholder="Ex - 100 x 100"
+                  />
+                </label>
+              </div>
+              <label for="tags">
+                <span>Tags</span>
+                <input
+                  type="text"
+                  name="tags"
+                  id="tags"
+                  placeholder="Beautiful Castle, Monkeys ETC"
+                />
+              </label>
+
+              <div class="form-row">
+                <label for="price">
+                  <span>Price</span>
+                  <div class="price-wrapper">
+                    <select
+                      class="currency__select"
+                      name="currency"
+                      id="currency"
+                    >
+                      <option value="ETH">ETH</option>
+                    </select>
+
+                    <input
+                      type="text"
+                      name="price"
+                      id="price"
+                      placeholder="0.00007"
+                      class="price__input"
+                    />
+                  </div>
+                </label>
+
+                <label for="stock">
+                  <span>In Stock</span>
+                  <select class="stock__select" name="stock" id="stock">
+                    <option value="1">1</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="form-toggle">
+                <span class="form-toggle-text">
+                  <span>Put On Sale</span>
+                  <span class="form-text--light">
+                    People Will Bids On Your NFT Project
+                  </span>
+                </span>
+                <input
+                  type="checkbox"
+                  name="putOnSale"
+                  id="put-on-sale"
+                  class="toggle-input"
+                />
+                <span class="toggle"></span>
+              </label>
+              <label class="form-toggle">
+                <span class="form-toggle-text">
+                  <span>Direct Sale</span>
+                  <span class="form-text--light">
+                    No Bids - Only Direct Salling
+                  </span>
+                </span>
+                <input
+                  type="checkbox"
+                  name="directSale"
+                  id="direct-sale"
+                  class="toggle-input"
+                />
+                <span class="toggle"></span>
+              </label>
+
+              <button type="submit" class="create-btn-form">Create</button>
+            </form>
+          </div>
+          <!-- <div class="loader-wrapper"><span class="loader"></span></div> -->
+        </div>
+      </main>
+
+      <footer class="footer">
+  <div class="container footer__container">
+    <a class="logo footer__logo" href="./index.html" aria-label="Site logo">
+      <svg class="logo__icon footer__logo-icon">
+        <use href="/Mintora/assets/sprite-DOsRapQK.svg#logo"></use>
+      </svg>
+      <span class="logo__text footer__logo-text">Mintora</span>
+    </a>
+    <ul class="footer__links-list">
+      <li class="footer__links-item">
+        <a class="footer__link" href="">Privacy Policy</a>
+      </li>
+      <li class="footer__links-item">
+        <a class="footer__link" href="">term & Conditions</a>
+      </li>
+      <li class="footer__links-item">
+        <a class="footer__link" href="">About Us</a>
+      </li>
+      <li class="footer__links-item">
+        <a class="footer__link" href="">Contact</a>
+      </li>
+    </ul>
+    <div class="social">
+      <ul class="social__list">
+        <li class="social__item">
+          <a class="social__link" href="">
+            <svg class="social__icons">
+              <use href="/Mintora/assets/sprite-DOsRapQK.svg#instagram-icon"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="social__item">
+          <a class="social__link" href="">
+            <svg class="social__icons">
+              <use href="/Mintora/assets/sprite-DOsRapQK.svg#linkedIn-icon"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="social__item">
+          <a class="social__link" href="">
+            <svg class="social__icons">
+              <use href="/Mintora/assets/sprite-DOsRapQK.svg#facebook-icon"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="social__item">
+          <a class="social__link" href="">
+            <svg class="social__icons">
+              <use href="/Mintora/assets/sprite-DOsRapQK.svg#twitter-icon"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="footer__copyright">© 2023 DiveSea All Rights Reserved.</p>
+  </div>
+</footer>
+
+      <div class="mobile-menu">
+  <!-- <svg><use href="./img/sprite.svg#close-menu-icon"></use></svg> -->
+  <div class="search--open">
+    <svg class="search__icon">
+      <use href="/Mintora/assets/sprite-DOsRapQK.svg#search"></use>
+    </svg>
+    <input
+      type="text"
+      class="search__input--mobile"
+      name="search"
+      placeholder="Search Art Work / Creator"
+    />
+  </div>
+  <ul class="nav__list--open">
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-act}" href="./discover.html">Discover</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-creators}" href="./creators.html"
+        >creators</a
+      >
+    </li>
+    <li class="nav__item">
+      <a class="nav__link active" href="./sell.html">Sell</a>
+    </li>
+    <li class="nav__item">
+      <a class="nav__link {=$highlight-curr}" href="./page-3.html">stats</a>
+    </li>
+  </ul>
+  <button class="button btn__wallet--open">Connect Wallet</button>
+</div>
+
+    </div>
+    <!-- <script type="module" src="./js/account-info.js"></script> -->
+
+  </body>
+</html>
