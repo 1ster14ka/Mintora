@@ -178,7 +178,7 @@
   height: 13px;
 
   border-radius: 50%;
-  background: #fff;
+  background: #000;
 
   box-shadow: 0 3px 6px rgba(15, 15, 15, 0.2);
 
@@ -191,6 +191,7 @@
 
 .toggle-input:checked + .toggle::before {
   transform: translateX(16px);
+  background: #fff;
 }
 
 .create-btn-form {
@@ -208,4 +209,119 @@
   text-transform: capitalize;
   color: #fff;
   margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .sell-main {
+    padding: 110px 0 150px 0;
+  }
+  .sell__title {
+    display: block;
+    font-weight: 600;
+    font-size: 32px;
+
+    /* line-height: 21px; */
+    line-height: 0.66676;
+    color: #141416;
+    text-align: center;
+    margin-bottom: 108px;
+  }
+  .sell-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 49px;
+  }
+  .sell__img-wrapper {
+    margin-top: 30px;
+  }
+  .sell__preview {
+    width: 332px;
+    height: 293px;
+    box-shadow:
+      0 58px 58px -44px rgba(15, 15, 15, 0.1),
+      0 -58px 57px 0 rgba(0, 0, 0, 0.05);
+  }
+  .sell__form {
+    width: 100%;
+  }
+
+  .sell__form label > span {
+    font-size: 14px;
+  }
+  .create-btn-form {
+    height: 46px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sell-main {
+    padding: 155px 0 210px 0;
+  }
+  .sell__title {
+    font-size: 45px;
+  }
+  .sell-wrapper {
+    gap: 69px;
+  }
+  .sell__preview {
+    width: 468px;
+    height: 413px;
+  }
+  .sell__preview-text {
+    font-size: 15px;
+  }
+  .sell__upload-button {
+    width: 327px;
+    height: 63px;
+  }
+
+  .sell__form {
+    gap: 35px;
+  }
+  .sell__form label > span {
+    font-size: 20px;
+  }
+  .sell__form label {
+    gap: 20px;
+  }
+  .sell__form input,
+  .sell__form select {
+    height: 62px;
+  }
+  .sell__form textarea {
+    height: 165px;
+  }
+  .sell__form input::placeholder,
+  .sell__form textarea::placeholder,
+  .sell__form select:optional {
+    font-size: 13px;
+  }
+  .sell__form select:optional {
+    padding-left: 10px;
+  }
+
+  .sell__form input,
+  .sell__form select,
+  .sell__form textarea {
+    font-size: 20px;
+  }
+
+  .form-text--light {
+    font-size: 13px;
+  }
+  .toggle {
+    width: 55px;
+    height: 30px;
+    border-radius: 15px;
+  }
+
+  .toggle::before {
+    top: 5px;
+    width: 20px;
+    height: 20px;
+  }
+  .toggle-input:checked + .toggle::before {
+    transform: translateX(25px);
+  }
 }
